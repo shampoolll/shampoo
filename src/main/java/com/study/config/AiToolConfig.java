@@ -47,22 +47,24 @@ public class AiToolConfig {
     public record OrderRequest(String orderNo) {}
 
     // 4. 提供给 AI 的【订单查询工具】
+    // 4. 提供给 AI 的【订单查询工具】
     @Bean
     @Description("当用户想要查询自己的订单状态、订单详情，且提供了订单号时，调用此工具。输入参数为订单号。")
     public Function<OrderRequest, String> queryOrderTool(OrdersService ordersService) {
         return request -> {
             QueryWrapper<Orders> qw = new QueryWrapper<>();
-            qw.eq("orders_num", request.orderNo());
+            // 数据库列名大概率叫 order_num
+            qw.eq("order_num", request.orderNo());
             Orders order = ordersService.getOne(qw);
 
             if (order == null) {
                 return "未查到该订单号的订单，请提醒用户核对订单号。";
             }
 
-            // 0未支付，1已支付等（根据你数据库 state 的实际含义调整）
-            String status = order.getState() == 0 ? "未支付" : "已支付";
-            return String.format("查到订单信息：订单号 %s，总金额 %s，当前状态为：%s",
-                    order.getOrdersNum(), order.getZprice(), status);
+            // 使用你实体类里真实的 get 方法名
+            String status = order.getPay_state() != null && order.getPay_state() == 0 ? "未支付" : "已支付";
+            return String.format("查到订单信息：订单号 %s，总金额 %s，当前状态为：%s，收货人：%s，电话：%s",
+                    order.getOrder_num(), order.getMoney(), status, order.getUsername(), order.getPhone());
         };
     }
 }
