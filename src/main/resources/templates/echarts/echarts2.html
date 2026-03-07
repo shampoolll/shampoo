@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>系统后台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
+    <meta content="Themesdesign" name="author"/>
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- Bootstrap Css -->
+    <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css"/>
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css"/>
+    <!-- App Css-->
+    <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css"/>
+
+
+
+</head>
+<body>
+
+
+    <div th:include="home/menu"></div>
+    <div id="layout-wrapper">
+
+        <div class="main-content">
+
+            <div class="page-content">
+
+                <!-- start page title -->
+                <div class="page-title-box">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <div class="col-sm-6">
+                                <div class="page-title">
+                                    <h4>系统后台</h4>
+                                    <ol class="breadcrumb m-0">
+
+                                        <li class="breadcrumb-item active">全国订单数据统计</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="float-end d-none d-sm-block">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+
+                <div class="container-fluid">
+                    <div class="page-content-wrapper">
+                        <div class="row">
+                            <div class="col-xl-9 mx-auto">
+                                <div class="card">
+
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="echarts" style="width: 1000px;height: 600px" id="main1"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="echarts" style="width: 1000px;height: 600px" id="main2"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div> <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+
+        </div>
+
+    </div>
+
+    <!--列表页面的-->
+    <!-- Required datatable js -->
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts.min.js"></script>
+    <script src="https://assets.pyecharts.org/assets/maps/china.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+
+
+
+        $.ajax({
+            cache : true,
+            type : "post",
+            url : "mapsEcharts",  //src/com/logistics/controller/OrdersController
+            async : false,
+            success : function(e) {
+                if (e) {
+                    if(e.length > 0){
+                        var message = [];
+                        var counts = [];
+                        for(var i= 0;i<e.length;i++){
+                            message.push(e[i].names);
+                            counts.push(e[i].counts);
+                        }
+
+                        echarts.init(document.getElementById('main1')).setOption({
+                            title: {
+                                text: '地区统计',
+                                subtext: '排行前十位',
+
+                            },
+                            tooltip: {
+                                trigger: 'item',
+                                formatter: '{a} <br/>{b} : {c} ({d}%)'
+                            },
+                            legend: {
+                                left: 'center',
+                                top: 'top',
+                                data: message
+                            },
+                            toolbox: {
+                                show: true,
+                                feature: {
+                                    mark: {show: true},
+                                    dataView: {show: true, readOnly: false},
+                                    restore: {show: true},
+                                    saveAsImage: {show: true}
+                                }
+                            },
+                            series: [
+                                {
+                                    name: 'Radius Mode',
+                                    type: 'pie',
+                                    radius: [20, 140],
+                                    center: ['25%', '50%'],
+                                    roseType: 'radius',
+                                    itemStyle: {
+                                        borderRadius: 5
+                                    },
+                                    label: {
+                                        show: false
+                                    },
+                                    emphasis: {
+                                        label: {
+                                            show: true
+                                        }
+                                    },
+
+                                    data: [
+                                        {value: counts[0], name: message[0]},
+                                        {value: counts[1], name: message[1]},
+                                        {value: counts[2], name: message[2]},
+                                        {value: counts[3], name: message[3]},
+                                        {value: counts[4], name: message[4]},
+                                        {value: counts[5], name: message[5]},
+                                        {value: counts[6], name: message[6]},
+                                        {value: counts[7], name: message[7]},
+                                        {value: counts[8], name: message[8]},
+                                        {value: counts[9], name: message[9]},
+                                    ]
+                                },
+                                {
+                                    name: 'Area Mode',
+                                    type: 'pie',
+                                    radius: [20, 140],
+                                    center: ['75%', '50%'],
+                                    roseType: 'area',
+                                    itemStyle: {
+                                        borderRadius: 5
+                                    },
+
+                                    data: [
+                                        {value: counts[0], name: message[0]},
+                                        {value: counts[1], name: message[1]},
+                                        {value: counts[2], name: message[2]},
+                                        {value: counts[3], name: message[3]},
+                                        {value: counts[4], name: message[4]},
+                                        {value: counts[5], name: message[5]},
+                                        {value: counts[6], name: message[6]},
+                                        {value: counts[7], name: message[7]},
+                                        {value: counts[8], name: message[8]},
+                                        {value: counts[9], name: message[9]},
+                                    ]
+                                }
+                            ]
+                        });
+
+                        function randomValue() {
+                            return Math.round(Math.random()*100);
+                        }
+                        var dataList=[
+                            {name: message[0], value: counts[0]},
+                            {name: message[1], value: counts[1]},
+                            {name: message[2], value: counts[2]},
+                            {name: message[3], value: counts[3]},
+                            {name: message[4], value: counts[4]},
+                            {name: message[5], value: counts[5]},
+                            {name: message[6], value: counts[6]},
+                            {name: message[7], value: counts[7]},
+                            {name: message[8], value: counts[8]},
+                            {name: message[9], value: counts[9]},
+                            {name: message[10], value: counts[10]},
+                            {name: message[11], value: counts[11]},
+                            {name: message[12], value: counts[12]},
+                            {name: message[13], value: counts[13]},
+                            {name: message[14], value: counts[14]},
+                            {name: message[15], value: counts[15]},
+                            {name: message[16], value: counts[16]},
+                            {name: message[17], value: counts[17]},
+                            {name: message[18], value: counts[18]},
+                            {name: message[19], value: counts[19]},
+                            {name: message[20], value: counts[20]},
+                            {name: message[21], value: counts[21]},
+                            {name: message[22], value: counts[22]},
+                            {name: message[23], value: counts[23]},
+                            {name: message[24], value: counts[24]},
+                            {name: message[25], value: counts[25]},
+                            {name: message[26], value: counts[26]},
+                            {name: message[27], value: counts[27]},
+                            {name: message[28], value: counts[28]},
+                            {name: message[29], value: counts[29]},
+                            {name: message[30], value: counts[30]},
+                            {name: message[31], value: counts[31]},
+                        ]
+
+
+                        echarts.init(document.getElementById('main2')).setOption({
+                            title: {
+                                text: '全国订单数据分布'
+                            },
+                            tooltip: {
+                                formatter:function(params,ticket, callback){
+                                    return params.seriesName+'<br />'+params.name+'：'+params.value
+                                }//数据格式化
+                            },
+                            toolbox: {
+                                show: true,
+                                feature: {
+
+                                    dataView: { readOnly: false },
+                                    restore: {},
+                                    saveAsImage: {}
+                                }
+                            },
+                            visualMap: {
+                                min: 0,
+                                max: 25,
+                                left: 'left',
+                                top: 'bottom',
+                                text: ['高','低'],//取值范围的文字
+                                inRange: {
+                                    color: ['#ecf8b9', '#02f852', '#1f94ff','#ff3344']//取值范围的颜色
+                                },
+                                show:true//图注
+                            },
+                            geo: {
+                                map: 'china',
+                                roam: true,//不开启缩放和平移
+                                zoom:1.12,//视角缩放比例
+                                label: {
+                                    normal: {
+                                        show: true,
+                                        fontSize:'10',
+                                        color: 'rgba(0,0,0,0.7)'
+                                    }
+                                },
+                                itemStyle: {
+                                    normal:{
+                                        borderColor: 'rgba(0, 0, 0, 0.2)'
+                                    },
+                                    emphasis:{
+                                        areaColor: '#F3B329',//鼠标选择区域颜色
+                                        shadowOffsetX: 0,
+                                        shadowOffsetY: 0,
+                                        shadowBlur: 20,
+                                        borderWidth: 0,
+                                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                    }
+                                }
+                            },
+                            series : [
+                                {
+                                    name: '地区/租房次数',
+                                    type: 'map',
+                                    geoIndex: 0,
+                                    data:dataList
+                                }
+                            ]
+                        });
+
+
+                    }
+                } else {
+                    alert("查询失败！");
+                }
+            }
+        })
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+<!--列表页面的-->
+<!-- Required datatable js -->
+
+
+</body>
+</html>

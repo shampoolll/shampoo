@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="en"xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>房屋租赁管理系统</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="static/picture/favicon.svg">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="static/css/main.css">
+</head>
+
+<body>
+<!-- Quick view -->
+<div th:include="index/header"></div>
+
+<!--End header-->
+<main class="main">
+    <!--轮播开始-->
+    <section class="home-slider style-2 position-relative mb-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="home-slide-cover">
+                        <div class="hero-slider-1 style-4 dot-style-1 dot-style-1-position-1">
+                            <div th:each="data:${bannerlist}" class="single-hero-slider single-animation-wrap"  th:style="'background-image:url(' + ${data.photo}+ ')'">
+                                <div class="slider-content">
+                                    <h1 class="display-2 mb-40" th:text="${data.title}"></h1>
+                                    <p class="mb-65" ></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-arrow hero-slider-1-arrow"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!--轮播结束-->
+    <!--侧标题结束s-->
+    <!--热门房屋-->
+    <section class="product-tabs section-padding position-relative wow fadeIn animated">
+        <div class="container">
+            <div class="section-title style-2">
+                <h3>房屋大全</h3>
+
+            </div>
+            <!--分类结束-->
+            <!--房屋-->
+            <div class="tab-content wow fadeIn animated" id="myTabContent">
+                    <div class="row product-grid-4" >
+                        <div class="col-lg-1-5 col-md-4 col-12 col-sm-6" th:each="data,datasize:${goodslist}" th:if="${datasize.index} lt 10" >
+                            <div class="product-cart-wrap mb-30">
+                                <div class="product-img-action-wrap">
+                                    <div class="product-img product-img-zoom">
+                                        <a th:href="@{/toGoodsDetail(id=${data.id})}">
+                                            <img style="width: 246px;height: 246px" class="default-img" th:src="${data.photo}" alt="">
+                                            <!-- 背后图<img class="hover-img" src="static/picture/product-1-2.jpg" alt="">-->
+                                        </a>
+                                    </div>
+                                    <div class="product-action-1">
+                                        <button aria-label="收藏" th:onclick="addcart([[${data.id}]])"  class="action-btn" ><i class="fi-rs-heart"></i></button>
+                                      </div>
+                                    <div class="product-badges product-badges-position product-badges-mrg">
+                                        <span class="hot">热门</span>
+                                    </div>
+                                </div>
+                                <div class="product-content-wrap">
+                                    <div class="product-category">
+                                        <a  th:text="${data.category.name}"></a>
+                                    </div>
+                                    <h2><a th:href="@{/toGoodsDetail(id=${data.id})}" th:text="${data.names}"></a></h2>
+                                    <div class="product-rate-cover">
+                                        <div class="product-rate d-inline-block">
+                                            <div class="product-rating" style="width:90%">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="product-card-bottom">
+                                        <div class="product-price">
+                                            <span th:text="${data.price}"></span>
+                                            <span class="old-price" th:text="${data.normalprice}"></span>
+                                        </div>
+                                        <div class="add-cart">
+                                            <a class="add" th:onclick="addcart([[${data.id}]])"><i class="fi-rs-shopping-cart mr-5"></i>收藏 </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end product card-->
+                    </div>
+                    <!--End product-grid-4-->
+                </div>
+                <!--En tab one-->
+
+            </div>
+            <!--End tab-content-->
+        </div>
+    </section>
+    <!--租赁次数榜-->
+    <section class="section-padding pb-5">
+        <div class="container">
+            <div class="section-title">
+                <h3 class="">租赁次数榜前10</h3>
+
+            </div>
+            <div class="row">
+                <div class="col-lg-3 d-none d-lg-flex">
+                    <div class="banner-img style-2 wow fadeIn animated">
+                        <div class="banner-text">
+                            <h2 class="mb-100">带回家 </h2>
+                            <a href="shop-grid-right.html" class="btn btn-xs">了解更多 <i class="fi-rs-arrow-small-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-12">
+                    <div  class="tab-content wow fadeIn animated" id="myTabContent-1">
+                        <div  class="tab-pane fade show active" id="tab-one-1" role="tabpanel" aria-labelledby="tab-one-1">
+                            <div class="carausel-4-columns-cover arrow-center position-relative">
+                                <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns">
+                                    <div th:each="data,datas:${goodslistSalenums}"  class="product-cart-wrap">
+                                        <div class="product-img-action-wrap">
+                                            <div class="product-img product-img-zoom">
+                                                <a th:href="@{/toGoodsDetail(id=${data.id})}">
+                                                    <img class="default-img" style="width: 250px;height: 280px" th:src="${data.photo}" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="product-action-1">
+
+                                                <button aria-label="收藏" th:onclick="addcart([[${data.id}]])"  class="action-btn" ><i class="fi-rs-heart"></i></button>
+                                            </div>
+                                            <div class="product-badges product-badges-position product-badges-mrg">
+                                                <span class="new" th:text="'No.'+${datas.index+1}"></span>
+                                            </div>
+                                        </div>
+                                        <div class="product-content-wrap">
+                                            <div class="product-category">
+                                                <a  th:text="${data.category.name}" ></a>
+                                            </div>
+                                            <h2><a th:href="@{/toGoodsDetail(id=${data.id})}" th:text="${data.names}"></a></h2>
+
+                                            <div class="product-price mt-10">
+                                                <span th:text="'￥'+${data.price}"> </span>
+                                                <span class="old-price" th:text="'￥'+${data.normalprice}"></span>
+                                            </div>
+                                            <div class="sold mt-15 mb-15">
+
+                                                <span class="font-xs text-heading" th:text="'已售'+${data.salenums}"> </span>
+                                            </div>
+                                            <a th:onclick="addcart([[${data.id}]])" class="btn w-100 hover-up"><i class="fi-rs-shopping-cart mr-5"></i>加入收藏</a>
+                                        </div>
+                                    </div>
+                                    <!--End product Wrap-->
+
+                                    <!--End product Wrap-->
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--End tab-pane-->
+                       </div>
+                    <!--End tab-content-->
+                </div>
+                <!--End Col-lg-9-->
+            </div>
+        </div>
+    </section>
+    <!--公告-->
+    <section class="section-padding pb-5">
+        <div class="container">
+            <div class="section-title">
+                <h3 class="">公告动态</h3>
+                <a class="show-all" href="">
+                    全部公告
+                    <i class="fi-rs-angle-right"></i>
+                </a>
+            </div>
+            <div class="row">
+                <div class="col-xl-3 col-lg-4 col-md-6" th:each="data:${boardlist}">
+                    <div class="product-cart-wrap style-2">
+                        <div class="product-img-action-wrap">
+                            <div class="product-img">
+                                <a th:href="@{/toBoard_detail(id=${data.id})}">
+                                    <img th:src="${data.photo}" style="width: 378px;height: 311px" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-content-wrap">
+
+                            <div class="deals-content">
+                                <h2><a  th:text="${data.title}"></a></h2>
+
+                                <div>
+                                    <span class="font-small text-muted" th:text="${data.create_time}"></span>
+                                </div>
+                                <div class="product-card-bottom">
+                                    <div class="product-price">
+                                        <span></span>
+                                        <span class="old-price"></span>
+                                    </div>
+                                    <div class="add-cart">
+                                        <a class="add" th:href="@{/toBoard_detail(id=${data.id})}">阅读 </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!--3个子类-->
+    <section class="section-padding mb-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-sm-5 mb-md-0">
+                    <h4 class="section-title style-1 mb-30 wow fadeIn animated animated animated">收藏最高</h4>
+                    <div class="product-list-small wow fadeIn animated animated animated">
+
+                        <article class="row align-items-center hover-up" th:each="data:${goodslistcollectnums}">
+                            <figure class="col-md-4 mb-0">
+                                <a th:href="@{/toGoodsDetail(id=${data.id})}"><img th:src="${data.photo}" alt="" style="width: 110px;height: 110px"></a>
+                            </figure>
+                            <div class="col-md-8 mb-0">
+                                <h6>
+                                    <a th:href="@{/toGoodsDetail(id=${data.id})}" th:text="${data.names}"></a>
+                                </h6>
+                                <div class="product-rate-cover">
+
+                                </div>
+                                <div class="product-price">
+                                    <span th:text="${data.price}"></span>
+                                    <span class="old-price" th:text="${data.normalprice}"></span>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-md-0">
+                    <h4 class="section-title style-1 mb-30 wow fadeIn animated animated animated">热门房屋</h4>
+                    <div class="product-list-small wow fadeIn animated animated animated">
+                        <article class="row align-items-center hover-up" th:each="data:${goodslisthot}">
+                            <figure class="col-md-4 mb-0">
+                                <a th:href="@{/toGoodsDetail(id=${data.id})}"><img th:src="${data.photo}" alt="" style="width: 110px;height: 110px"></a>
+                            </figure>
+                            <div class="col-md-8 mb-0">
+                                <h6>
+                                    <a th:href="@{/toGoodsDetail(id=${data.id})}" th:text="${data.names}"></a>
+                                </h6>
+                                <div class="product-rate-cover">
+
+                                </div>
+                                <div class="product-price">
+                                    <span th:text="${data.price}"></span>
+                                    <span class="old-price" th:text="${data.normalprice}"></span>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-sm-5 mb-md-0 d-none d-lg-block">
+                    <h4 class="section-title style-1 mb-30 wow fadeIn animated animated animated">最新上架</h4>
+                    <div class="product-list-small wow fadeIn animated animated animated">
+                        <article class="row align-items-center hover-up" th:each="data:${goodslistnew}">
+                            <figure class="col-md-4 mb-0">
+                                <a th:href="@{/toGoodsDetail(id=${data.id})}"><img th:src="${data.photo}" alt="" style="width: 110px;height: 110px"></a>
+                            </figure>
+                            <div class="col-md-8 mb-0">
+                                <h6>
+                                    <a th:href="@{/toGoodsDetail(id=${data.id})}" th:text="${data.names}"></a>
+                                </h6>
+                                <div class="product-rate-cover">
+
+                                </div>
+                                <div class="product-price">
+                                    <span th:text="${data.price}"></span>
+                                    <span class="old-price" th:text="${data.normalprice}"></span>
+                                </div>
+                            </div>
+                        </article>
+
+
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-sm-5 mb-md-0 d-none d-xl-block">
+                    <h4 class="section-title style-1 mb-30 wow fadeIn animated animated animated">热度最高</h4>
+                    <div class="product-list-small wow fadeIn animated animated animated">
+                        <article class="row align-items-center hover-up" th:each="data:${goodslistsee}">
+                            <figure class="col-md-4 mb-0">
+                                <a th:href="@{/toGoodsDetail(id=${data.id})}"><img th:src="${data.photo}" alt="" style="width: 110px;height: 110px"></a>
+                            </figure>
+                            <div class="col-md-8 mb-0">
+                                <h6>
+                                    <a th:href="@{/toGoodsDetail(id=${data.id})}" th:text="${data.names}"></a>
+                                </h6>
+                                <div class="product-rate-cover">
+
+                                </div>
+                                <div class="product-price">
+                                    <span th:text="${data.price}"></span>
+                                    <span class="old-price" th:text="${data.normalprice}"></span>
+                                </div>
+                            </div>
+                        </article>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End 4 columns-->
+    <section class="popular-categories section-padding">
+        <div class="container wow fadeIn animated">
+            <div class="section-title">
+                <div class="title">
+                    <h3>房屋类型</h3>
+
+                </div>
+                <div class="slider-arrow slider-arrow-2 flex-right carausel-8-columns-arrow" id="carausel-8-columns-arrows"></div>
+            </div>
+            <div class="carausel-8-columns-cover position-relative">
+                <div  class="carausel-8-columns" id="carausel-8-columns">
+                    <div th:each="data:${categorylist}" class="card-1">
+                        <figure class=" img-hover-scale overflow-hidden">
+                            <a th:href="@{/toGoods(category_id=${data.id})}"><img  th:src="${data.photo}" alt="" style="width: 80px;height: 80px"></a>
+                        </figure>
+                        <h6><a  th:text="${data.name}"></a></h6>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End category slider-->
+</main>
+<div th:include="index/footer"></div>
+<!-- Preloader Start -->
+<div id="preloader-active">
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-inner position-relative">
+            <div class="text-center">
+                <img src="static/picture/loading.gif" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Vendor JS-->
+<script src="static/js/modernizr-3.6.0.min.js"></script>
+<script src="static/js/jquery-3.6.0.min.js"></script>
+<script src="static/js/jquery-migrate-3.3.0.min.js"></script>
+<script src="static/js/bootstrap.bundle.min.js"></script>
+<script src="static/js/slick.js"></script>
+<script src="static/js/jquery.syotimer.min.js"></script>
+<script src="static/js/wow.js"></script>
+<script src="static/js/jquery-ui.js"></script>
+<script src="static/js/perfect-scrollbar.js"></script>
+<script src="static/js/magnific-popup.js"></script>
+<script src="static/js/select2.min.js"></script>
+<script src="static/js/waypoints.js"></script>
+<script src="static/js/counterup.js"></script>
+<script src="static/js/jquery.countdown.min.js"></script>
+<script src="static/js/images-loaded.js"></script>
+<script src="static/js/isotope.js"></script>
+<script src="static/js/scrollup.js"></script>
+<script src="static/js/jquery.vticker-min.js"></script>
+<script src="static/js/jquery.theia.sticky.js"></script>
+<script src="static/js/jquery.elevatezoom.js"></script>
+<!-- Template  JS -->
+<script src="static/js/main.js"></script>
+<script src="static/js/shop.js"></script>
+
+<link href="assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+<script th:src="@{/assets/libs/sweetalert2/sweetalert2.min.js}" src=""></script>
+<script th:src="@{/assets/js/pages/sweet-alerts.init.js}" src=""></script>
+<script>
+    function collect(id) {
+        Swal.fire({
+            title: "确定添加收藏吗?",
+            icon: "info",
+            showCancelButton: !0,
+            confirmButtonColor: "#1cbb8c",
+            cancelButtonColor: "#f14e4e",
+            confirmButtonText: '确认',
+            cancelButtonText: '取消'
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    cache: true,
+                    url: "addCollect",
+                    data: {"goods_id": id},
+                    type: "post",
+                    async: false,
+                    success: function (data) {
+                        if (data == 'yes') {
+                            result.value && Swal.fire("收藏成功!", "操作完成", "success", ).then(function () {
+                                document.location.reload()
+                            })
+
+                        } else  if (data == 'no') {
+                            result.value && Swal.fire("收藏失败!", "请先登录", "error", ).then(function () {
+                                document.location.reload()
+                            })
+
+                        }else  if (data == 'repeat') {
+                            result.value && Swal.fire("收藏失败!", "您已收藏过了", "error", ).then(function () {
+                                document.location.reload()
+                            })
+                        }
+                    },
+                    complete : function(xhr, status) {
+                      if(status=='error'){
+                          alert("请先登录！")
+                      }
+                        //拦截器实现超时跳转到登录页面
+                        // 通过xhr取得响应头
+                        var REDIRECT = xhr.getResponseHeader("REDIRECT");
+                        //如果响应头中包含 REDIRECT 则说明是拦截器返回的需要重定向的请求
+                        if (REDIRECT == "REDIRECT")
+                        {
+                            var win = window;
+                            while (win != win.top)
+                            {
+                                win = win.top;
+                            }
+
+                            win.location.href = xhr.getResponseHeader("CONTEXTPATH");
+                        }
+                    }
+                });
+            }
+        })
+    }
+
+
+    function addcart(id) {
+        Swal.fire({
+            title: "确定加入收藏吗?",
+            icon: "info",
+            showCancelButton: !0,
+            confirmButtonColor: "#1cbb8c",
+            cancelButtonColor: "#f14e4e",
+            confirmButtonText: '确认',
+            cancelButtonText: '取消'
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    cache: true,
+                    url: "addShopcart",
+                    data: {"goods_id": id,"nums":1},
+                    type: "post",
+                    async: false,
+                    success: function (data) {
+                        if (data == 'yes') {
+                            result.value && Swal.fire("加入成功!", "操作完成", "success", ).then(function () {
+                                document.location.reload()
+                            })
+                        } else  if (data == 'no') {
+                            result.value && Swal.fire("加入失败!", "请先登录", "error", ).then(function () {
+                                document.location.reload()
+                            })
+
+                        }else  if (data == 'repeat') {
+                            result.value && Swal.fire("收藏失败!", "您已收藏过了", "error", ).then(function () {
+                                document.location.reload()
+                            })
+                        }
+                    },
+                    complete : function(xhr, status) {
+                        if(status=='error'){
+                            alert("请先登录！")
+                        }
+                        //拦截器实现超时跳转到登录页面
+                        // 通过xhr取得响应头
+                        var REDIRECT = xhr.getResponseHeader("REDIRECT");
+                        //如果响应头中包含 REDIRECT 则说明是拦截器返回的需要重定向的请求
+                        if (REDIRECT == "REDIRECT")
+                        {
+                            var win = window;
+                            while (win != win.top)
+                            {
+                                win = win.top;
+                            }
+
+                            win.location.href = xhr.getResponseHeader("CONTEXTPATH");
+                        }
+                    }
+                });
+            }
+        })
+    }
+</script>
+</body>
+
+</html>

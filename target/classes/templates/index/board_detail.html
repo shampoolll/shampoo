@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="en"xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>房屋租赁管理系统</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="static/picture/favicon.svg">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="static/css/main.css">
+</head>
+
+<body>
+<!-- Quick view -->
+<div th:include="index/header"></div>
+
+<main class="main">
+    <div class="page-content mb-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 m-auto">
+                    <div class="single-page pt-50 pr-30">
+                        <div class="single-header style-2">
+                            <div class="row">
+                                <div class="col-xl-10 col-lg-12 m-auto">
+                                    <h6 class="mb-10"><a href="#">系统公告</a></h6>
+                                    <h2 class="mb-10" th:text="${board.title}"></h2>
+                                    <div class="single-header-meta">
+                                        <div class="entry-meta meta-1 font-xs mt-15 mb-15">
+                                            <a class="author-avatar" href="#">
+                                                <img class="img-circle" src="static/picture/author-1.png" alt="">
+                                            </a>
+                                            <span class="post-by" th:text="${board.editor}"></span>
+                                            <span class="post-on has-dot" th:text="${board.create_time}"></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="single-content">
+                            <div class="row">
+                                <div class="col-xl-10 col-lg-12 m-auto">
+
+
+                                    <!--Author box-->
+                                    <div class="author-bio p-30 mt-50 border-radius-15 bg-white wow fadeIn animated animated animated" style="visibility: visible;">
+
+                                        <div class="author-des">
+                                            <p th:text="${board.detail}"></p>
+                                        </div>
+                                    </div>
+                                    <!--Comment form-->
+                                  <!--  <div class="comment-form">
+                                        <h3 class="mb-15 text-center mb-30">Leave a Comment</h3>
+                                        <div class="row">
+                                            <div class="col-lg-9 col-md-12  m-auto">
+                                                <form class="form-contact comment_form mb-50" action="#" id="commentForm">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9" placeholder="Write Comment"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <input class="form-control" name="name" id="name" type="text" placeholder="Name">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <input class="form-control" name="email" id="email" type="email" placeholder="Email">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <input class="form-control" name="website" id="website" type="text" placeholder="Website">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button type="submit" class="button button-contactForm">Post Comment</button>
+                                                    </div>
+                                                </form>
+                                                <div class="comments-area">
+                                                    <h3 class="mb-30">Comments</h3>
+                                                    <div class="comment-list   m-auto">
+                                                        <div class=" single-comment justify-content-between d-flex mb-30">
+                                                            <div class="user justify-content-between d-flex">
+                                                                <div class="thumb text-center">
+                                                                    <img src="static/picture/author-2.png" alt="">
+                                                                    <a href="#" class="font-heading text-brand">Sienna</a>
+                                                                </div>
+                                                                <div class="desc">
+                                                                    <div class="d-flex justify-content-between mb-10">
+                                                                        <div class="d-flex align-items-center">
+                                                                            <span class="font-xs text-muted">December 4, 2021 at 3:12 pm </span>
+                                                                        </div>
+                                                                        <div class="product-rate d-inline-block">
+                                                                            <div class="product-rating" style="width:80%">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, suscipit exercitationem accusantium obcaecati quos voluptate nesciunt facilis itaque modi commodi dignissimos sequi repudiandae minus ab deleniti totam officia id incidunt? <a href="#" class="reply">Reply</a></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="single-comment justify-content-between d-flex mb-30 ml-30">
+                                                            <div class="user justify-content-between d-flex">
+                                                                <div class="thumb text-center">
+                                                                    <img src="static/picture/author-3.png" alt="">
+                                                                    <a href="#" class="font-heading text-brand">Brenna</a>
+                                                                </div>
+                                                                <div class="desc">
+                                                                    <div class="d-flex justify-content-between mb-10">
+                                                                        <div class="d-flex align-items-center">
+                                                                            <span class="font-xs text-muted">December 4, 2021 at 3:12 pm </span>
+                                                                        </div>
+                                                                        <div class="product-rate d-inline-block">
+                                                                            <div class="product-rating" style="width:80%">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, suscipit exercitationem accusantium obcaecati quos voluptate nesciunt facilis itaque modi commodi dignissimos sequi repudiandae minus ab deleniti totam officia id incidunt? <a href="#" class="reply">Reply</a></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="single-comment justify-content-between d-flex">
+                                                            <div class="user justify-content-between d-flex">
+                                                                <div class="thumb text-center">
+                                                                    <img src="static/picture/author-4.png" alt="">
+                                                                    <a href="#" class="font-heading text-brand">Gemma</a>
+                                                                </div>
+                                                                <div class="desc">
+                                                                    <div class="d-flex justify-content-between mb-10">
+                                                                        <div class="d-flex align-items-center">
+                                                                            <span class="font-xs text-muted">December 4, 2021 at 3:12 pm </span>
+                                                                        </div>
+                                                                        <div class="product-rate d-inline-block">
+                                                                            <div class="product-rating" style="width:80%">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, suscipit exercitationem accusantium obcaecati quos voluptate nesciunt facilis itaque modi commodi dignissimos sequi repudiandae minus ab deleniti totam officia id incidunt? <a href="#" class="reply">Reply</a></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div th:include="index/footer"></div>
+<!-- Preloader Start -->
+<div id="preloader-active">
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-inner position-relative">
+            <div class="text-center">
+                <img src="static/picture/loading.gif" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Vendor JS-->
+<script src="static/js/modernizr-3.6.0.min.js"></script>
+<script src="static/js/jquery-3.6.0.min.js"></script>
+<script src="static/js/jquery-migrate-3.3.0.min.js"></script>
+<script src="static/js/bootstrap.bundle.min.js"></script>
+<script src="static/js/slick.js"></script>
+<script src="static/js/jquery.syotimer.min.js"></script>
+<script src="static/js/wow.js"></script>
+<script src="static/js/jquery-ui.js"></script>
+<script src="static/js/perfect-scrollbar.js"></script>
+<script src="static/js/magnific-popup.js"></script>
+<script src="static/js/select2.min.js"></script>
+<script src="static/js/waypoints.js"></script>
+<script src="static/js/counterup.js"></script>
+<script src="static/js/jquery.countdown.min.js"></script>
+<script src="static/js/images-loaded.js"></script>
+<script src="static/js/isotope.js"></script>
+<script src="static/js/scrollup.js"></script>
+<script src="static/js/jquery.vticker-min.js"></script>
+<script src="static/js/jquery.theia.sticky.js"></script>
+<script src="static/js/jquery.elevatezoom.js"></script>
+<!-- Template  JS -->
+<script src="static/js/main.js"></script>
+<script src="static/js/shop.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="en"xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>房屋租赁管理系统</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="static/picture/favicon.svg">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="static/css/main.css">
+    <style>
+        .headthread{
+            background-color: #ececec;font-family: Quicksand,sans-serif;color: #253D4E;ont-size:17px; font-weight: 700;}
+    </style>
+
+</head>
+
+<body>
+<!-- Quick view -->
+<div th:include="index/header"></div>
+<main class="main">
+
+    <div class="container mb-80 mt-50">
+        <div class="row">
+            <div class="col-lg-8 mb-40">
+                <h1 class="heading-2 mb-10">收藏</h1>
+                <div class="d-flex justify-content-between">
+                    <h6 class="text-body">共有 <span class="text-brand" th:text="${list.size()}"></span> 项房屋！</h6>
+                    <td class="cart_total_label">
+                        <h6 style="color: red" th:text="${status}"></h6>
+                    </td>
+                </div>
+            </div>
+        </div>
+        <div class="row" data-select2-id="17">
+            <div class="col-lg-8" data-select2-id="16" id="noneproduct">
+
+        </div>
+        </div>
+        <div class="row" data-select2-id="17">
+            <div class="col-lg-8" data-select2-id="16">
+                <div class="table-responsive shopping-summery">
+                    <!--收藏内容的数据开始--> <form id="cartForm" th:action="preOrder">
+                    <table class="table table-wishlist" id="shoppingCarTable">
+
+                    </table>
+                    <!--收藏内容的数据结束-->
+
+
+                </div>
+
+
+                <div class="divider-2 mb-30"></div>
+            <!--    <div class="cart-action d-flex justify-content-between">
+                    <a class="btn  mr-10 mb-sm-15"><i class="fi-rs-refresh mr-10"></i>清空收藏</a>
+                </div>-->
+
+            </div>
+            <div class="col-lg-4" id="maincart">
+                <div class="border p-md-4 cart-totals ml-30">
+
+                    <div class="table-responsive">
+                        <table class="table no-border">
+                            <tbody>
+                          <tr>
+
+
+                            </tr>
+                            <tr>
+                                <td class="cart_total_label">
+                                    <h6  style="color: red" id="message"></h6>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td class="cart_total_label">
+                                    <h6 class="text-muted" id="totalmoney">月租金</h6>
+                                </td>
+                                <td class="cart_total_amount">
+                                    <h4 class="text-brand text-end">￥<span id='totalPrice'>0</span></h4>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button type="button"   class="btn mb-20 w-100" onclick="confirmPre()">租赁<i class="fi-rs-sign-out ml-15"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div th:include="index/footer"></div>
+<!-- Preloader Start -->
+<div id="preloader-active">
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-inner position-relative">
+            <div class="text-center">
+                <img src="static/picture/loading.gif" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Vendor JS-->
+<script src="static/js/modernizr-3.6.0.min.js"></script>
+<script src="static/js/jquery-3.6.0.min.js"></script>
+<script src="static/js/jquery-migrate-3.3.0.min.js"></script>
+<script src="static/js/bootstrap.bundle.min.js"></script>
+<script src="static/js/slick.js"></script>
+<script src="static/js/jquery.syotimer.min.js"></script>
+<script src="static/js/wow.js"></script>
+<script src="static/js/jquery-ui.js"></script>
+<script src="static/js/perfect-scrollbar.js"></script>
+<script src="static/js/magnific-popup.js"></script>
+<script src="static/js/select2.min.js"></script>
+<script src="static/js/waypoints.js"></script>
+<script src="static/js/counterup.js"></script>
+<script src="static/js/jquery.countdown.min.js"></script>
+<script src="static/js/images-loaded.js"></script>
+<script src="static/js/isotope.js"></script>
+<script src="static/js/scrollup.js"></script>
+<script src="static/js/jquery.vticker-min.js"></script>
+<script src="static/js/jquery.theia.sticky.js"></script>
+<script src="static/js/jquery.elevatezoom.js"></script>
+<!-- Template  JS -->
+<script src="static/js/main.js"></script>
+<script src="static/js/shop.js"></script>
+<script>
+    $(function(){
+        $.ajax({
+            type : 'POST',
+            url : 'findCartByUser',
+            dataType : 'json',
+            success : function(arr) {
+                if(arr!=null&&arr!=""){
+                    var str='<thread><tr style="background-color: #ececec;font-family: Quicksand,sans-serif;color: #253D4E;ont-size:17px; font-weight: 700;">'+
+                        '<th class="custome-checkbox start pl-30"></th>'+
+                        '<th scope="col" class="headthread">房屋图</th>'+
+                        '<th scope="col">房屋名称</th>'+
+                        '<th scope="col">房屋租金</th>'+
+                        '<th scope="col">房屋当前租赁情况</th>'+
+                        '<th scope="col" class="end">删除</th>'+
+                        '</tr></thread>';
+                    for(var i=0;i<arr.length;i++){
+
+                        str=str+'<tr id="goodsData'+arr[i].id+'">'+
+                            '<td class="custome-checkbox start pl-30">'+
+                            '<div class="checkbox">'+
+                            '<label>'+
+                            '<input  style="width: 20px;height: 20px" type="radio" name="goodslist"  value="'+arr[i].id+'">'+
+                            '</label>'+
+                            '</div>'+
+                            '</td>'+
+                            '<td class="image product-thumbnail"><img style="height:100px;width:100px" src="'+arr[i].goods.photo+'"/>'+'</td>'+
+                            '<td class="product-des product-name"><h6 class="mb-5">'+arr[i].goods.names+'</h6></td>'+
+
+
+                            '<td><h5  class="text-brand" id="totalPrice'+arr[i].id+'">'+arr[i].nums*arr[i].goods.price+'元</h5></td>'+
+
+                            '<td class="product-des product-name">' +
+                            '<h6 class="mb-5" id="state'+arr[i].id+'">'+arr[i].statusstring+'</h6>' +
+                            '</td>'+
+
+
+                            '<td><i class="fi-rs-trash" onclick="deleteCart('+arr[i].id+')"></i></td>'+
+                            '</tr>';
+                    }
+                    $("#shoppingCarTable").html(str);
+                    $("input[name='goodslist']").bind("click",function(){
+                        changeTotal();
+                        var flag=checkAll();
+                        $("#allSelect").prop("checked",flag);
+                    })
+                }else{
+                    var empty="<div style='width:100%;height:500px;'><div style='text-align:center;padding-top:100px;'>"+
+                        "<p><h3>亲，您的收藏里还没有内容哦，赶紧去逛逛吧!</h3></p></div></div>";
+                    $("#noneproduct").html(empty);
+                }
+            },
+            error : function(result) {
+                alert('查询错误');
+            }
+        });
+    });
+    function selectAll(){
+        var flag=$("#allSelect").prop("checked");
+        var arr=$("input[name='goodslist']");
+        for(var i=0;i<arr.length;i++){
+            $(arr[i]).prop("checked",flag);
+        }
+        changeTotal();
+    }
+    function checkAll(){
+        var arr=$("input[name='goodslist']");
+        for(var i=0;i<arr.length;i++){
+            if(!$(arr[i]).prop("checked")){
+                return false;
+            }
+        }
+        return true;
+    }
+    function changeTotal(){
+        var arr=$("input[name='goodslist']");
+        var totalPrice=0;
+        var num=0;
+        for(var i=0;i<arr.length;i++){
+            if($(arr[i]).prop("checked")){
+                num++;
+                var cartId=$(arr[i]).val();
+                var singleTotal=parseInt($("#totalPrice"+cartId).html());
+                totalPrice+=singleTotal;
+            }
+        }
+        $("#totalPrice").html(totalPrice);
+        $("#totalNum").html(num);
+    }
+    function reduceNum(id){
+        var num=parseInt($("#num"+id).html());
+        num--;
+        if(num<=0){
+            $(this).attr("disabled",true);
+        }else{
+            $.ajax({
+                type: "POST",
+                url: "reduceCartNum?cartId="+id,
+                success:function(data){
+                    if(data=="success"){
+                        $("#num"+id).html(num);
+                        refreshPrice(id);
+                    }
+                }
+            });
+        }
+    }
+    function addNum(id){
+        var num=parseInt($("#num"+id).html());
+        num++;
+        $("reduceNum"+id).attr("disabled",false);
+        $.ajax({
+            type: "POST",
+            url: "addCartNum?cartId="+id,
+            success:function(data){
+                if(data=="success"){
+                    $("#num"+id).html(num);
+                    refreshPrice(id);
+                }
+            }
+        });
+        changeTotal();
+    }
+    function refreshPrice(id){
+        var num=parseInt($("#num"+id).html());
+        var singlePrice=parseInt($("#singlePrice"+id).html());
+        var total=num*singlePrice;
+        $("#totalPrice"+id).html(total);
+        changeTotal();
+    }
+
+    function deleteCart(id) {
+        Swal.fire({
+            title: "确定移除收藏吗?",
+            text: "操作将无法撤回!",
+            icon: "info",
+            showCancelButton: !0,
+            confirmButtonColor: "#1cbb8c",
+            cancelButtonColor: "#f14e4e",
+            confirmButtonText: '确认',
+            cancelButtonText: '取消'
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    cache: true,
+                    url: "deleteShopcart",
+                    data: {"id": id},
+                    type: "post",
+                    async: false,
+                    success: function (data) {
+                        if (data == 'yes') {
+                            result.value && Swal.fire("删除成功!", "操作完成", "success", ).then(function () {
+                                document.location.reload()
+                            })
+                        }
+                    },
+                });
+            }
+        })
+    }
+
+    function confirmPre(){
+        var num=parseInt($("#totalNum").html());
+        if(num<1){
+            var total="您未选择任何房屋！";
+            $("#message").html(total);
+           return false;
+        }else if(num>1){
+                var total="只能选择一项房屋进行租赁！";
+                $("#message").html(total);
+                return false;
+            }
+
+        else{
+            $("#cartForm").submit();
+        }
+    }
+</script>
+
+
+<link href="assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+<script th:src="@{/assets/libs/sweetalert2/sweetalert2.min.js}" src=""></script>
+<script th:src="@{/assets/js/pages/sweet-alerts.init.js}" src=""></script>
+<script>
+    function delshopcart(id) {
+        Swal.fire({
+            title: "确定移除收藏吗?",
+            text: "操作将无法撤回!",
+            icon: "info",
+            showCancelButton: !0,
+            confirmButtonColor: "#1cbb8c",
+            cancelButtonColor: "#f14e4e",
+            confirmButtonText: '确认',
+            cancelButtonText: '取消'
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    cache: true,
+                    url: "deleteShopcart",
+                    data: {"id": id},
+                    type: "post",
+                    async: false,
+                    success: function (data) {
+                        if (data == 'yes') {
+                            result.value && Swal.fire("删除成功!", "操作完成", "success", ).then(function () {
+                                document.location.reload()
+                            })
+                        } else  if (data == 'no') {
+                            result.value && Swal.fire("删除失败!", "请先登录", "error", ).then(function () {
+                                document.location.reload()
+                            })
+
+                        }
+                    },
+                });
+            }
+        })
+    }
+</script>
+</body>
+
+</html>

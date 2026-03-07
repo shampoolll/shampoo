@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="en"xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>房屋租赁管理系统</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="static/picture/favicon.svg">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="static/css/main.css">
+</head>
+
+<body>
+<!-- Quick view -->
+<div th:include="index/header"></div>
+
+<main class="main">
+    <div class="page-header mt-30 mb-50">
+        <div class="container">
+            <div class="archive-header">
+                <div class="row align-items-center">
+                    <div class="col-xl-3">
+                        <h1 class="mb-15">租房中心</h1>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mb-30">
+        <div class="row">
+            <div class="col-lg-4-5">
+                <div class="shop-product-fillter">
+                    <div class="totall-product">
+                        <p>共<strong class="text-brand"th:text="${pageInfo.total}"></strong> 项房屋!</p>
+                    </div>
+                    <div class="sort-by-product-area">
+                        <div class="sort-by-cover mr-10">
+                            <div class="sort-by-product-wrap">
+                                <div class="sort-by">
+                                    <span><i class="fi-rs-apps"></i>每页:</span>
+                                </div>
+                                <div class="sort-by-dropdown-wrap">
+                                    <span th:text="${pageInfo.pageSize}">  <i class="fi-rs-angle-small-down"></i></span>
+                                </div>
+                            </div>
+                            <div class="sort-by-dropdown">
+                                <ul>
+                                    <li><a class="active" th:href="@{/toGoods(pageSize=${pageInfo.pageSize})}" th:text="${pageInfo.pageSize}"></a></li>
+                                    <li><a th:href="@{/toGoods(pageSize=5)}">5</a></li>
+                                    <li><a th:href="@{/toGoods(pageSize=10)}">10</a></li>
+                                    <li><a th:href="@{/toGoods(pageSize=20)}">20</a></li>
+                                    <li><a th:href="@{/toGoods(pageSize=30)}">30</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sort-by-cover">
+                            <div class="sort-by-product-wrap">
+                                <div class="sort-by">
+                                    <span><i class="fi-rs-apps-sort"></i>筛选:</span>
+                                </div>
+                                <div class="sort-by-dropdown-wrap">
+                                    <span> 默认排序 <i class="fi-rs-angle-small-down"></i></span>
+                                </div>
+                            </div>
+                            <div class="sort-by-dropdown">
+                                <ul>
+                                    <li><a class="active" href="toGoods">默认</a></li>
+                                    <li><a th:href="@{/toGoods(pricehigh=1)}">价格从高到低</a></li>
+                                    <li><a th:href="@{/toGoods(pricelow=1)}">价格从低到高</a></li>
+                                    <li><a th:href="@{/toGoods(ishot=1)}">热门房屋</a></li>
+                                    <li><a th:href="@{/toGoods(collect=1)}">收藏最多</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row product-grid">
+                    <div class="col-lg-1-5 col-md-4 col-12 col-sm-6" th:each="data:${pageInfo.list}">
+                        <div class="product-cart-wrap mb-30">
+                            <div class="product-img-action-wrap">
+                                <div class="product-img product-img-zoom">
+                                    <a th:href="@{/toGoodsDetail(id=${data.id})}">
+                                        <img style="width: 246px;height: 246px" class="default-img" th:src="${data.photo}" alt="">
+                                        <!-- 背后图<img class="hover-img" src="static/picture/product-1-2.jpg" alt="">-->
+                                    </a>
+                                </div>
+                                <div class="product-action-1">
+                                    <button aria-label="收藏" th:onclick="addcart([[${data.id}]])"  class="action-btn" ><i class="fi-rs-heart"></i></button>
+                                </div>
+                                <div class="product-badges product-badges-position product-badges-mrg">
+                                    <span class="sale" th:if="${data.ishot} eq 1">热门</span>
+                                </div>
+                            </div>
+                            <div class="product-content-wrap">
+                                <div class="product-category">
+                                    <a  th:text="${data.category.name}"></a>
+                                </div>
+                                <h2><a th:href="@{/toGoodsDetail(id=${data.id})}" th:text="${data.names}"></a></h2>
+                                <div>
+
+                                    <span class="font-smalltext-muted"th:text="${data.seenums}+'次浏览'"> </span>
+                                </div>
+                                <div>
+                                    <span class="font-small text-muted" th:text="${data.collectnums}+'人收藏'"></span>
+                                </div>
+                                <div class="product-card-bottom">
+                                    <div class="product-price">
+                                        <span th:text="'￥'+${data.price}"></span>
+                                        <span th:text="'￥'+${data.normalprice}" class="old-price"></span>
+                                    </div>
+                                    <div class="add-cart">
+                                        <a class="add" th:onclick="addcart([[${data.id}]])" ><i class="fi-rs-shopping-cart mr-5"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--product grid-->
+                <div class="pagination-area mt-20 mb-20">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-start">
+                            <li class="page-item">
+                                <a class="page-link" th:href="'/'+${url}+'?pageNum='+${pageInfo.prePage}"
+                                   th:if="${pageInfo.pageNum > pageInfo.getFirstPage() && pageInfo.prePage != 0}"><i class="fi-rs-arrow-small-left"></i></a>
+                            </li>
+
+
+                            <li class="page-item" th:each="i:${pageInfo.navigatepageNums}">
+
+                                <a style="color: white" class="page-link bg-primary" th:href="'/'+${url}+'?pageNum='+${i}" th:if="${pageInfo.pageNum == i}"
+                                   th:text="${i}"
+                                ></a>
+
+                                <a class="page-link" th:href="'/'+${url}+'?pageNum='+${i}"
+                                   th:if="${pageInfo.pageNum != i}" th:text="${i}">
+                                </a>
+                            </li>
+
+                            <li class="page-item"><a class="page-link" th:href="'/'+${url}+'?pageNum='+${pageInfo.nextPage}"
+                                                     th:if="${pageInfo.pageNum < pageInfo.getLastPage()}"><i class="fi-rs-arrow-small-right"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+            <div class="col-lg-1-5 primary-sidebar sticky-sidebar">
+                <div class="sidebar-widget widget-category-2 mb-30">
+                    <h5 class="section-title style-1 mb-30 wow fadeIn animated">房屋类型</h5>
+                    <ul>
+                        <li th:each="data:${categorylist}" >
+                            <a th:href="@{/toGoods(category_id=${data.id})}">
+                            <img th:src="${data.photo}" alt="" style="width: 33px;height: 33px" th:text="${data.name}">
+                            </a>
+                            <span class="count" th:text="${data.nums}"></span>
+                        </li>
+
+                        </ul>
+                </div>
+                <!-- Fillter By Price -->
+
+                <!-- Product sidebar Widget -->
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<div th:include="index/footer"></div>
+<!-- Preloader Start -->
+<div id="preloader-active">
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-inner position-relative">
+            <div class="text-center">
+                <img src="static/picture/loading.gif" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Vendor JS-->
+<script src="static/js/modernizr-3.6.0.min.js"></script>
+<script src="static/js/jquery-3.6.0.min.js"></script>
+<script src="static/js/jquery-migrate-3.3.0.min.js"></script>
+<script src="static/js/bootstrap.bundle.min.js"></script>
+<script src="static/js/slick.js"></script>
+<script src="static/js/jquery.syotimer.min.js"></script>
+<script src="static/js/wow.js"></script>
+<script src="static/js/jquery-ui.js"></script>
+<script src="static/js/perfect-scrollbar.js"></script>
+<script src="static/js/magnific-popup.js"></script>
+<script src="static/js/select2.min.js"></script>
+<script src="static/js/waypoints.js"></script>
+<script src="static/js/counterup.js"></script>
+<script src="static/js/jquery.countdown.min.js"></script>
+<script src="static/js/images-loaded.js"></script>
+<script src="static/js/isotope.js"></script>
+<script src="static/js/scrollup.js"></script>
+<script src="static/js/jquery.vticker-min.js"></script>
+<script src="static/js/jquery.theia.sticky.js"></script>
+<script src="static/js/jquery.elevatezoom.js"></script>
+<!-- Template  JS -->
+<script src="static/js/main.js"></script>
+<script src="static/js/shop.js"></script>
+
+
+<link href="assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+<script th:src="@{/assets/libs/sweetalert2/sweetalert2.min.js}" src=""></script>
+<script th:src="@{/assets/js/pages/sweet-alerts.init.js}" src=""></script>
+<script>
+    function collect(id) {
+        Swal.fire({
+            title: "确定添加收藏吗?",
+            icon: "info",
+            showCancelButton: !0,
+            confirmButtonColor: "#1cbb8c",
+            cancelButtonColor: "#f14e4e",
+            confirmButtonText: '确认',
+            cancelButtonText: '取消'
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    cache: true,
+                    url: "addCollect",
+                    data: {"goods_id": id},
+                    type: "post",
+                    async: false,
+                    success: function (data) {
+                        if (data == 'yes') {
+                            result.value && Swal.fire("收藏成功!", "操作完成", "success", ).then(function () {
+                                document.location.reload()
+                            })
+
+                        } else  if (data == 'no') {
+                            result.value && Swal.fire("收藏失败!", "请先登录", "error", ).then(function () {
+                                document.location.reload()
+                            })
+
+                        }else  if (data == 'repeat') {
+                            result.value && Swal.fire("收藏失败!", "您已收藏过了", "error", ).then(function () {
+                                document.location.reload()
+                            })
+                        }
+                    },
+                    complete : function(xhr, status) {
+                        if(status=='error'){
+                            alert("请先登录！")
+                        }
+                        //拦截器实现超时跳转到登录页面
+                        // 通过xhr取得响应头
+                        var REDIRECT = xhr.getResponseHeader("REDIRECT");
+                        //如果响应头中包含 REDIRECT 则说明是拦截器返回的需要重定向的请求
+                        if (REDIRECT == "REDIRECT")
+                        {
+                            var win = window;
+                            while (win != win.top)
+                            {
+                                win = win.top;
+                            }
+                            win.location.href = xhr.getResponseHeader("CONTEXTPATH");
+                        }
+                    }
+                });
+            }
+        })
+    }
+
+
+    function addcart(id) {
+        Swal.fire({
+            title: "确定加入收藏吗?",
+            icon: "info",
+            showCancelButton: !0,
+            confirmButtonColor: "#1cbb8c",
+            cancelButtonColor: "#f14e4e",
+            confirmButtonText: '确认',
+            cancelButtonText: '取消'
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    cache: true,
+                    url: "addShopcart",
+                    data: {"goods_id": id,"nums":1},
+                    type: "post",
+                    async: false,
+                    success: function (data) {
+                        if (data == 'yes') {
+                            result.value && Swal.fire("加入成功!", "操作完成", "success", ).then(function () {
+                                document.location.reload()
+                            })
+                        } else  if (data == 'no') {
+                            result.value && Swal.fire("加入失败!", "请先登录", "error", ).then(function () {
+                                document.location.reload()
+                            })
+
+                        }else  if (data == 'repeat') {
+                            result.value && Swal.fire("收藏失败!", "您已收藏过了", "error", ).then(function () {
+                                document.location.reload()
+                            })
+                        }
+                    },
+                    complete : function(xhr, status) {
+                        if(status=='error'){
+                            alert("请先登录！")
+                        }
+                        //拦截器实现超时跳转到登录页面
+                        // 通过xhr取得响应头
+                        var REDIRECT = xhr.getResponseHeader("REDIRECT");
+                        //如果响应头中包含 REDIRECT 则说明是拦截器返回的需要重定向的请求
+                        if (REDIRECT == "REDIRECT")
+                        {
+                            var win = window;
+                            while (win != win.top)
+                            {
+                                win = win.top;
+                            }
+
+                            win.location.href = xhr.getResponseHeader("CONTEXTPATH");
+                        }
+                    }
+                });
+            }
+        })
+    }
+</script>
+</body>
+
+</html>

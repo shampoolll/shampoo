@@ -1,0 +1,52 @@
+{
+  "groups": [
+    {
+      "name": "alipay",
+      "type": "com.study.config.AliPayConfig",
+      "sourceType": "com.study.config.AliPayConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "alipay.alipay-public-key",
+      "type": "java.lang.String",
+      "sourceType": "com.study.config.AliPayConfig"
+    },
+    {
+      "name": "alipay.app-id",
+      "type": "java.lang.String",
+      "sourceType": "com.study.config.AliPayConfig"
+    },
+    {
+      "name": "alipay.charset",
+      "type": "java.lang.String",
+      "sourceType": "com.study.config.AliPayConfig"
+    },
+    {
+      "name": "alipay.gateway-url",
+      "type": "java.lang.String",
+      "sourceType": "com.study.config.AliPayConfig"
+    },
+    {
+      "name": "alipay.notify-url",
+      "type": "java.lang.String",
+      "sourceType": "com.study.config.AliPayConfig"
+    },
+    {
+      "name": "alipay.private-key",
+      "type": "java.lang.String",
+      "sourceType": "com.study.config.AliPayConfig"
+    },
+    {
+      "name": "alipay.return-url",
+      "type": "java.lang.String",
+      "sourceType": "com.study.config.AliPayConfig"
+    },
+    {
+      "name": "alipay.sign-type",
+      "type": "java.lang.String",
+      "sourceType": "com.study.config.AliPayConfig"
+    }
+  ],
+  "hints": []
+}

@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="en"xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>房屋租赁管理系统</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="static/picture/favicon.svg">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="static/css/main.css">
+</head>
+
+<body>
+<!-- Quick view -->
+<div th:include="index/header"></div>
+
+<main class="main">
+    <br>
+    <section class="newsletter wow fadeIn animated mb-15 animated animated" style="visibility: visible;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="position-relative newsletter-inner">
+                        <div class="newsletter-content">
+                            <h2 class="mb-20">房东中心</h2>
+                            <div class="search-form">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <div class="page-content mb-50" style="transform: none;">
+        <div class="container" style="transform: none;">
+            <div class="row" style="transform: none;">
+                <div class="col-lg-9">
+                    <div class="shop-product-fillter">
+                        <div class="totall-product">
+                            <p>共<strong class="text-brand"th:text="${pageInfo.total}"></strong> 位房东!</p>
+                        </div>
+                        <div class="sort-by-product-area">
+                            <div class="sort-by-cover mr-10">
+                                <div class="sort-by-product-wrap">
+                                    <div class="sort-by">
+                                        <span><i class="fi-rs-apps"></i>每页:</span>
+                                    </div>
+                                    <div class="sort-by-dropdown-wrap">
+                                        <span th:text="${pageInfo.pageSize}">  <i class="fi-rs-angle-small-down"></i></span>
+                                    </div>
+                                </div>
+                                <div class="sort-by-dropdown">
+                                    <ul>
+                                        <li><a class="active" th:href="@{/toBussiness(pageSize=${pageInfo.pageSize})}" th:text="${pageInfo.pageSize}"></a></li>
+                                        <li><a th:href="@{/toBussiness(pageSize=5)}">5</a></li>
+                                        <li><a th:href="@{/toBussiness(pageSize=10)}">10</a></li>
+                                        <li><a th:href="@{/toBussiness(pageSize=20)}">20</a></li>
+                                        <li><a th:href="@{/toBussiness(pageSize=30)}">30</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="loop-grid loop-list pr-30 mb-50">
+                        <article  th:each="data:${pageInfo.list}" class="wow fadeIn animated hover-up mb-30 animated animated animated" style="visibility: visible;">
+                            <div class="post-thumb" th:style="'background-image:url(' + ${data.photo}+ ')'+';width:700px;height:400px'" >
+
+                            </div>
+                            <div class="entry-content-2 pl-50">
+                                <h3 class="post-title mb-20">
+                                    <a th:href="@{/toGoods_Bussiness(bussiness_id=${data.id})}" th:text="${data.realname}"> </a></h3>
+                                <p class="post-exerpt mb-40" th:text="${data.detail}"> </p>
+                                <div class="entry-meta meta-1 font-xs color-grey mt-10 pb-10">
+                                    <div>
+                                        <span class="post-on" th:text="${data.ctime}+'入驻'"></span>
+                                        <span class="hit-count has-dot" th:text="${data.nums}+'个房屋'"></span>
+                                    </div>
+                                    <a  class="text-brand font-heading font-weight-bold" th:href="@{/toGoods_Bussiness(bussiness_id=${data.id})}">查看房源 <i class="fi-rs-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                       </div>
+                    <div class="pagination-area mt-20 mb-20">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-start">
+                                <li class="page-item">
+                                    <a class="page-link" th:href="'/'+${url}+'?pageNum='+${pageInfo.prePage}"
+                                       th:if="${pageInfo.pageNum > pageInfo.getFirstPage() && pageInfo.prePage != 0}"><i class="fi-rs-arrow-small-left"></i></a>
+                                </li>
+
+
+                                <li class="page-item" th:each="i:${pageInfo.navigatepageNums}">
+
+                                    <a style="color: white" class="page-link bg-primary" th:href="'/'+${url}+'?pageNum='+${i}" th:if="${pageInfo.pageNum == i}"
+                                       th:text="${i}"
+                                    ></a>
+
+                                    <a class="page-link" th:href="'/'+${url}+'?pageNum='+${i}"
+                                       th:if="${pageInfo.pageNum != i}" th:text="${i}">
+                                    </a>
+                                </li>
+
+                                <li class="page-item"><a class="page-link" th:href="'/'+${url}+'?pageNum='+${pageInfo.nextPage}"
+                                                         th:if="${pageInfo.pageNum < pageInfo.getLastPage()}"><i class="fi-rs-arrow-small-right"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-3 primary-sidebar sticky-sidebar" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+
+                    <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none; top: 0px; left: 3702.5px;"><div class="widget-area">
+                        <div class="sidebar-widget-2 widget_search mb-50">
+                            <div class="search-form">
+                                <form th:action="toBussiness">
+                                    <input type="text" name="realname" placeholder="房东名称…">
+                                    <button type="submit"> <i class="fi-rs-search"></i> </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="sidebar-widget widget-category-2 mb-30">
+                            <h5 class="section-title style-1 mb-30 wow fadeIn animated">房屋类型</h5>
+                            <ul>
+                                <li th:each="data:${categorylist}" >
+                                    <a th:href="@{/toGoods(category_id=${data.id})}">
+                                        <img th:src="${data.photo}" alt="" style="width: 33px;height: 33px" th:text="${data.name}">
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div></div></div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div th:include="index/footer"></div>
+<!-- Preloader Start -->
+<div id="preloader-active">
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-inner position-relative">
+            <div class="text-center">
+                <img src="static/picture/loading.gif" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Vendor JS-->
+<script src="static/js/modernizr-3.6.0.min.js"></script>
+<script src="static/js/jquery-3.6.0.min.js"></script>
+<script src="static/js/jquery-migrate-3.3.0.min.js"></script>
+<script src="static/js/bootstrap.bundle.min.js"></script>
+<script src="static/js/slick.js"></script>
+<script src="static/js/jquery.syotimer.min.js"></script>
+<script src="static/js/wow.js"></script>
+<script src="static/js/jquery-ui.js"></script>
+<script src="static/js/perfect-scrollbar.js"></script>
+<script src="static/js/magnific-popup.js"></script>
+<script src="static/js/select2.min.js"></script>
+<script src="static/js/waypoints.js"></script>
+<script src="static/js/counterup.js"></script>
+<script src="static/js/jquery.countdown.min.js"></script>
+<script src="static/js/images-loaded.js"></script>
+<script src="static/js/isotope.js"></script>
+<script src="static/js/scrollup.js"></script>
+<script src="static/js/jquery.vticker-min.js"></script>
+<script src="static/js/jquery.theia.sticky.js"></script>
+<script src="static/js/jquery.elevatezoom.js"></script>
+<!-- Template  JS -->
+<script src="static/js/main.js"></script>
+<script src="static/js/shop.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>大学生竞赛管理系统</title>
+    <link rel="stylesheet" type="text/css"  th:href="@{/layui/css/layui.css}">
+    <link rel="stylesheet" type="text/css"  th:href="@{/layui/css/admin.css}">
+    <script type="text/javascript" th:src="@{/layui/layui.js}"></script>
+
+
+</head>
+
+<body class="layui-layout-body">
+
+<div id="LAY_app">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header" style="height: 60px;">
+            <!-- 头部区域 -->
+            <ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right">
+                <li class="layui-nav-item" lay-unselect>
+                    <a href="javascript:;" th:if="${session.get('type') == '1'}" >
+                        <cite th:text="${'欢迎管理员：'+session.get('username')}"></cite>
+                    </a>
+                   <a href="javascript:;" th:if="${session.get('type') == '3'}" >
+                        <cite th:text="${'欢迎评委：'+session.get('username')}"></cite>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="outLogin">退出登陆</a></dd>
+                        <dd layadmin-event="logout" style="text-align: center;"></dd>
+                    </dl>
+                </li>
+
+
+            </ul>
+        </div>
+
+        <!-- 侧边菜单 -->
+        <div class="layui-side layui-side-menu">
+            <div class="layui-side-scroll">
+                <div class="layui-logo" lay-href="toConsole">
+                    <span>大学生竞赛管理系统</span>
+                </div>
+
+                <ul th:if="${session.get('admin')} != null" class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu" lay-filter="layadmin-system-side-menu">
+                    <li data-name="home" class="layui-nav-item layui-nav-itemed">
+                        <a href="javascript:;" lay-tips="主页" lay-direction="2">
+                            <i class="layui-icon layui-icon-home"></i>
+                            <cite>主页</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd data-name="console" class="layui-this">
+                                <a href="toConsole"  target="mainFrame">控制台</a>
+                            </dd>
+                        </dl>
+                    </li>
+
+
+                    <li data-name="" class="layui-nav-item" th:if="${session.get('admin')} != null">
+                        <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-component"></i>
+                            <cite>用户管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+
+                            <dd class="layui-nav-itemed">
+                                <a href="UserList" target="mainFrame">用户信息</a>
+                            </dd>
+                            <dd class="layui-nav-itemed">
+                                <a href="toAddUser" target="mainFrame">新增用户</a>
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li data-name="" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-component"></i>
+                            <cite>竞赛主题管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+
+                            <dd class="layui-nav-itemed">
+                                <a href="CategoryList" target="mainFrame">竞赛主题信息</a>
+                            </dd>
+                            <dd class="layui-nav-itemed" >
+                                <a href="toAddCategory" target="mainFrame">新增竞赛主题</a>
+                            </dd>
+                        </dl>
+                    </li>
+
+
+
+                    <li data-name="" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-component"></i>
+                            <cite>竞赛管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+
+                            <dd class="layui-nav-itemed">
+                                <a href="ContestList" target="mainFrame">竞赛信息</a>
+                            </dd>
+                            <dd class="layui-nav-itemed">
+                                <a href="toAddContest" target="mainFrame">新增竞赛</a>
+                            </dd>
+                        </dl>
+                    </li>
+
+
+                    <li data-name="" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-component"></i>
+                            <cite>论坛管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd class="layui-nav-itemed">
+                                <a href="NewsList" target="mainFrame">论坛信息</a>
+                            </dd>
+                           <!-- <dd class="layui-nav-itemed">
+                                <a href="toAddNews" target="mainFrame">新增论坛</a>
+                            </dd>-->
+                        </dl>
+                    </li>
+
+                    <li data-name="" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-component"></i>
+                            <cite>报名管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd class="layui-nav-itemed">
+                                <a href="RecordList" target="mainFrame">报名信息</a>
+                            </dd>
+                           <!-- <dd class="layui-nav-itemed">
+                                <a href="toAddRecord" target="mainFrame">新增报名</a>
+                            </dd>-->
+                        </dl>
+                    </li>
+
+
+
+                    <li data-name="" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-component"></i>
+                            <cite>评委管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd class="layui-nav-itemed">
+                                <a href="EmployeeList" target="mainFrame">评委信息</a>
+                            </dd>
+                            <dd class="layui-nav-itemed">
+                                <a href="toAddEmployee" target="mainFrame">新增评委</a>
+                            </dd>
+                        </dl>
+                    </li>
+
+
+                    <li data-name="" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-component"></i>
+                            <cite>评论管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd class="layui-nav-itemed">
+                                <a href="CommentsList" target="mainFrame">评论信息</a>
+                            </dd>
+
+                        </dl>
+                    </li>
+
+
+                    <li data-name="" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-component"></i>
+                            <cite>回复管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd class="layui-nav-itemed">
+                                <a href="ReplyList" target="mainFrame">回复信息</a>
+                            </dd>
+                        </dl>
+                    </li>
+
+
+                    <li data-name="" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-component"></i>
+                            <cite>举报管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd class="layui-nav-itemed">
+                                <a href="ReportsList" target="mainFrame">举报信息</a>
+                            </dd>
+
+                        </dl>
+                    </li>
+
+                    <li data-name="" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-component"></i>
+                            <cite>得奖管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd class="layui-nav-itemed">
+                                <a href="AwardList" target="mainFrame">得奖信息</a>
+                            </dd>
+
+                        </dl>
+                    </li>
+
+
+                    <li data-name="" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-component"></i>
+                            <cite>公告管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+
+                            <dd class="layui-nav-itemed">
+                                <a href="BoardList" target="mainFrame">公告信息</a>
+                            </dd>
+                            <dd class="layui-nav-itemed">
+                                <a   href="toAddBoard" target="mainFrame">新增公告</a>
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li data-name="" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-component"></i>
+                            <cite>个人信息</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+
+                            <dd class="layui-nav-itemed">
+                                <a href="toUpdateAdmin" target="mainFrame">修改密码</a>
+                            </dd>
+                        </dl>
+                    </li>
+
+                </ul>
+
+                <ul th:if="${session.get('employee')} != null" class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu" lay-filter="layadmin-system-side-menu">
+                    <li data-name="home" class="layui-nav-item layui-nav-itemed">
+                        <a href="javascript:;" lay-tips="主页" lay-direction="2">
+                            <i class="layui-icon layui-icon-home"></i>
+                            <cite>主页</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd data-name="console" class="layui-this">
+                                <a href="toConsole"  target="mainFrame">控制台</a>
+                            </dd>
+                        </dl>
+                    </li>
+
+
+
+
+                    <li data-name="" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-component"></i>
+                            <cite>评委管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd class="layui-nav-itemed">
+                                <a href="EmployeeList" target="mainFrame">评委信息</a>
+                            </dd>
+
+                        </dl>
+                    </li>
+
+
+
+                    <li data-name="" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-component"></i>
+                            <cite>竞赛管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+
+                            <dd class="layui-nav-itemed">
+                                <a href="ContestList" target="mainFrame">竞赛信息</a>
+                            </dd>
+                        </dl>
+                    </li>
+
+
+
+                    <li data-name="" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-component"></i>
+                            <cite>报名管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd class="layui-nav-itemed">
+                                <a href="RecordList" target="mainFrame">报名信息</a>
+                            </dd>
+
+                        </dl>
+                    </li>
+
+
+                    <li data-name="" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-component"></i>
+                            <cite>举报管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd class="layui-nav-itemed">
+                                <a href="ReportsList" target="mainFrame">举报信息</a>
+                            </dd>
+
+                        </dl>
+                    </li>
+
+
+                    <li data-name="" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-component"></i>
+                            <cite>得奖管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd class="layui-nav-itemed">
+                                <a href="AwardList" target="mainFrame">得奖信息</a>
+                            </dd>
+
+                        </dl>
+                    </li>
+
+                    <li data-name="" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-component"></i>
+                            <cite>公告管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+
+                            <dd class="layui-nav-itemed">
+                                <a href="BoardList" target="mainFrame">公告信息</a>
+                            </dd>
+
+                        </dl>
+                    </li>
+
+                </ul>
+
+
+
+
+
+            </div>
+        </div>
+
+
+        <!-- 主体内容 -->
+        <div class="layui-body" id="LAY_app_body" style="margin-top: -20px">
+            <div class="layadmin-tabsbody-item layui-show">
+                <iframe src="toConsole" id="mainFrame" name="mainFrame" style="width:100%;height:100%;"  frameborder="0" class="mainFrame"></iframe>
+            </div>
+        </div>
+
+        <!-- 辅助元素，一般用于移动设备下遮罩 -->
+        <div class="layadmin-body-shade" layadmin-event="shade"></div>
+    </div>
+</div>
+<script>
+
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+</script>
+
+</body>
+</html>

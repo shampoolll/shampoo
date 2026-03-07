@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="51286fff-dad0-4336-a629-f12a327281e0" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/study/controller/IndexController.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/study/controller/EchartsController.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/study/controller/CommentsController.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/templates/index/goods_detail.html" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/study/controller/LoginController.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/study/controller/OrdersController.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/study/controller/UserController.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/study/controller/GoodsController.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/study/service/impl/OrdersServiceImpl.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/study/controller/ShopcartController.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2OC4U22ttPRGgtfkSnZM6Rs0v7T" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Spring Boot.StudyApplication.executor&quot;: &quot;Run&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\springboot\src\main\resources" />
+      <recent name="D:\springboot\src\main\java" />
+      <recent name="D:\contest_web\src\main\resources\static\layui" />
+      <recent name="D:\contest_web\src\main\resources\static" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.study.dao" />
+      <recent name="com.study.entity" />
+      <recent name="com.study.controller" />
+      <recent name="com.study.service.impl" />
+      <recent name="com.study.service" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\springboot\src\main\resources\templates\echarts" />
+      <recent name="D:\springboot\src\main\resources\templates" />
+      <recent name="D:\springboot\src\main\resources\templates\rechange" />
+      <recent name="D:\springboot\src\main\resources\templates\address" />
+      <recent name="D:\springboot\src\main\resources\static\static" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.StudyApplication">
+    <configuration name="StudyApplicationTests.genCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="springboot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.study.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.study" />
+      <option name="MAIN_CLASS_NAME" value="com.study.StudyApplicationTests" />
+      <option name="METHOD_NAME" value="genCode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="study" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.study.StudyApplication" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.study.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.StudyApplicationTests.genCode" />
+      <item itemvalue="Spring Boot.StudyApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.StudyApplication" />
+        <item itemvalue="JUnit.StudyApplicationTests.genCode" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.138" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.29346.138" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="51286fff-dad0-4336-a629-f12a327281e0" name="Default Changelist" comment="" />
+      <created>1681051241143</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681051241143</updated>
+      <workItem from="1681051246335" duration="4876000" />
+      <workItem from="1681098871341" duration="1303000" />
+      <workItem from="1681128055403" duration="15188000" />
+      <workItem from="1681209167174" duration="2594000" />
+      <workItem from="1681300841341" duration="522000" />
+      <workItem from="1681301618641" duration="9067000" />
+      <workItem from="1681348402136" duration="122000" />
+      <workItem from="1681397860013" duration="613000" />
+      <workItem from="1682259348044" duration="2687000" />
+      <workItem from="1682300997357" duration="8000" />
+      <workItem from="1682434577855" duration="54000" />
+      <workItem from="1682509080760" duration="5773000" />
+      <workItem from="1682523111927" duration="1169000" />
+      <workItem from="1682563929147" duration="5332000" />
+      <workItem from="1683446662343" duration="1691000" />
+      <workItem from="1683774109584" duration="301000" />
+      <workItem from="1684385134442" duration="2663000" />
+      <workItem from="1684414408232" duration="601000" />
+      <workItem from="1690962045477" duration="67000" />
+      <workItem from="1690975583614" duration="632000" />
+      <workItem from="1690977868423" duration="4000" />
+      <workItem from="1690980618080" duration="498000" />
+      <workItem from="1691036918818" duration="4031000" />
+      <workItem from="1691067590099" duration="1242000" />
+      <workItem from="1691118192956" duration="693000" />
+      <workItem from="1691121677561" duration="1786000" />
+      <workItem from="1691374145547" duration="6000" />
+      <workItem from="1693753056044" duration="650000" />
+      <workItem from="1693816097382" duration="470000" />
+      <workItem from="1693816676703" duration="9216000" />
+      <workItem from="1693928428836" duration="2595000" />
+      <workItem from="1693981919226" duration="7354000" />
+      <workItem from="1694006397687" duration="3236000" />
+      <workItem from="1694067940467" duration="399000" />
+      <workItem from="1694216043533" duration="5800000" />
+      <workItem from="1694272146067" duration="4556000" />
+      <workItem from="1694336943263" duration="2618000" />
+      <workItem from="1694350594647" duration="1987000" />
+      <workItem from="1695203329295" duration="1851000" />
+      <workItem from="1695209472976" duration="4935000" />
+      <workItem from="1695355378299" duration="5057000" />
+      <workItem from="1695391454041" duration="299000" />
+      <workItem from="1698042755142" duration="6273000" />
+      <workItem from="1698063183851" duration="1344000" />
+      <workItem from="1698217271604" duration="306000" />
+      <workItem from="1698217601733" duration="3000" />
+      <workItem from="1698217627954" duration="682000" />
+      <workItem from="1698233373708" duration="4352000" />
+      <workItem from="1698293566442" duration="9556000" />
+      <workItem from="1698326558145" duration="7178000" />
+      <workItem from="1698385774001" duration="1788000" />
+      <workItem from="1698564965222" duration="10000" />
+      <workItem from="1698565062777" duration="1771000" />
+      <workItem from="1699424074854" duration="618000" />
+      <workItem from="1699940936686" duration="1347000" />
+      <workItem from="1700041015650" duration="4308000" />
+      <workItem from="1700054169321" duration="9689000" />
+      <workItem from="1700106735262" duration="166000" />
+      <workItem from="1700314697406" duration="1122000" />
+      <workItem from="1700659062453" duration="6307000" />
+      <workItem from="1700712720367" duration="12637000" />
+      <workItem from="1700747061804" duration="3320000" />
+      <workItem from="1700822792043" duration="6000" />
+      <workItem from="1700997371028" duration="13030000" />
+      <workItem from="1701056332569" duration="595000" />
+      <workItem from="1701067200077" duration="10370000" />
+      <workItem from="1701141750749" duration="10716000" />
+      <workItem from="1701174361100" duration="6327000" />
+      <workItem from="1701182928909" duration="3636000" />
+      <workItem from="1701227983756" duration="20067000" />
+      <workItem from="1701414503617" duration="9412000" />
+      <workItem from="1701574788010" duration="14626000" />
+      <workItem from="1701620368121" duration="142000" />
+      <workItem from="1701663379957" duration="958000" />
+      <workItem from="1701670116135" duration="31000" />
+      <workItem from="1701671834268" duration="735000" />
+      <workItem from="1701691921562" duration="318000" />
+      <workItem from="1701695620879" duration="879000" />
+      <workItem from="1701698206874" duration="4099000" />
+      <workItem from="1701750585785" duration="25393000" />
+      <workItem from="1701838367987" duration="12618000" />
+      <workItem from="1702277020416" duration="7248000" />
+      <workItem from="1702287845166" duration="2614000" />
+      <workItem from="1702353005748" duration="3000" />
+      <workItem from="1702355140383" duration="1298000" />
+      <workItem from="1702369914264" duration="6881000" />
+      <workItem from="1702443037063" duration="3791000" />
+      <workItem from="1702548486930" duration="8881000" />
+      <workItem from="1702565251992" duration="985000" />
+      <workItem from="1702963029960" duration="5209000" />
+      <workItem from="1703000524374" duration="2391000" />
+      <workItem from="1703060496631" duration="54000" />
+      <workItem from="1703060766445" duration="3568000" />
+      <workItem from="1703067531056" duration="20000" />
+      <workItem from="1703073799418" duration="39000" />
+      <workItem from="1703080032443" duration="628000" />
+      <workItem from="1703080830883" duration="9000" />
+      <workItem from="1708686238196" duration="2411000" />
+      <workItem from="1708783781900" duration="444000" />
+      <workItem from="1708785630962" duration="683000" />
+      <workItem from="1708936522364" duration="1029000" />
+      <workItem from="1708963712640" duration="10000" />
+      <workItem from="1708963732475" duration="868000" />
+      <workItem from="1710680609564" duration="1907000" />
+      <workItem from="1710684136763" duration="6966000" />
+      <workItem from="1736257680242" duration="79000" />
+      <workItem from="1736607270593" duration="281000" />
+      <workItem from="1736868042528" duration="2239000" />
+      <workItem from="1736930870796" duration="2049000" />
+      <workItem from="1741796117625" duration="241000" />
+      <workItem from="1742361751771" duration="730000" />
+      <workItem from="1772686116317" duration="1532000" />
+      <workItem from="1772715903760" duration="262000" />
+      <workItem from="1772788990339" duration="841000" />
+      <workItem from="1772792293248" duration="1993000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:junit:junit" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="java:org.thymeleaf:thymeleaf" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.xml.ws:jakarta.xml.ws-api" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
+  </component>
+</project>

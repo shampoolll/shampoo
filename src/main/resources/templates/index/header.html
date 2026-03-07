@@ -1,0 +1,91 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<header class="header-area header-style-1 header-height-2">
+    <div class="mobile-promotion">
+        <span>Grand opening, <strong>up to 15%</strong> off all items. Only <strong>3 days</strong> left</span></div>
+    <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
+        <div class="container">
+            <div class="header-wrap">
+                <div class="logo logo-width-1">
+                    <a th:src="toIndex"></a>
+                </div>
+                <div class="header-right">
+                    <div class="search-form">
+                        <form th:action="toGoods">
+                            <input name="names" style="width: 900px" type="text" placeholder="房屋名称查询">
+                            <button type="submit"> <i class="fi-rs-search"></i> </button>
+                        </form>
+                    </div>
+                    <div class="header-action-right">
+                        <div class="header-action-2">
+                            <div class="header-action-icon-2" th:if="${session.get('type') == '2'}">
+                                <a th:href="UserList">
+                                    <img class="svgInject" alt="Nest" src="static/picture/icon-user.svg">
+                                </a>
+                                <span class="lable ml-0" th:text="'欢迎用户：'+${session.get('user').realname}"></span>
+                            </div>
+
+                            <div class="header-action-icon-2" th:if="${session.get('type') == null}">
+                                <span class="lable"><a th:href="outLogin">注册登录</a></span>
+                            </div>
+
+                            <div class="header-action-icon-2" th:if="${session.get('type') != null}">
+                                <span class="lable"><a th:href="outLogin">注销</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom header-bottom-bg-color sticky-bar">
+        <div class="container">
+            <div class="header-wrap header-space-between position-relative">
+                <div class="logo logo-width-1 d-block d-lg-none">
+                    <a href="index.html"><img src="static/picture/logo.svg" alt="logo"></a>
+                </div>
+                <div class="header-nav d-none d-lg-flex">
+                    <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading">
+                        <nav>
+                            <ul>
+                                <li class="hot-deals"><img src="static/picture/icon-hot.svg" alt="hot deals">
+                                    <a th:href="toIndex">首页</a></li>
+
+
+                                <li>
+                                    <a th:href="toGoods">租房中心</a>
+                                </li>
+                                <li>
+                                    <a th:href="toBussiness">房东推荐</a>
+                                </li>
+                                <li>
+                                    <a th:href="toBoard">公告通知</a>
+                                </li>
+
+
+                                <li>
+                                    <a th:href="ShopcartList" th:if="${session.get('type') == '2'}">房屋收藏</a>
+                                </li>
+                                <li>
+                                    <a th:href="UserList" th:if="${session.get('type') == '2'}">个人中心</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="hotline d-none d-lg-flex">
+                    <img src="static/picture/icon-headphone.svg" alt="hotline">
+                    <p>1900 - 888<span>24/7 客服</span></p>
+                </div>
+                <div class="header-action-icon-2 d-block d-lg-none">
+                    <div class="burger-icon burger-icon-white">
+                        <span class="burger-icon-top"></span>
+                        <span class="burger-icon-mid"></span>
+                        <span class="burger-icon-bottom"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+</html>

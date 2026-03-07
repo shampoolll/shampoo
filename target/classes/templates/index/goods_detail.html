@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="en"xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>房屋租赁管理系统</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="static/picture/favicon.svg">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="static/css/main.css">
+</head>
+
+<body>
+<!-- Quick view -->
+<div th:include="index/header"></div>
+<br>
+
+<main class="main">
+
+    <div class="container mb-30">
+        <div class="row">
+            <div class="col-xl-10 col-lg-12 m-auto">
+                <div class="product-detail accordion-detail">
+                    <div class="row mb-50 mt-30">
+                        <div class="col-md-6 col-sm-12 col-xs-12 mb-md-0 mb-sm-5">
+                            <div class="detail-gallery">
+                                <span class="zoom-icon" style="width:580px;height: 580px"><i class="fi-rs-search"></i></span>
+                                <!-- MAIN SLIDES -->
+                                <div class="product-image-slider" style="width:580px;height: 580px">
+                                    <figure class="border-radius-10">
+                                        <img th:src="${goods.photo}" style="width:580px;height: 580px" alt="product image">
+                                    </figure>
+
+                                </div>
+                            </div>
+                            <!-- End Gallery -->
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="detail-info pr-30 pl-30">
+                                <h2 class="title-detail" th:text="${goods.names}"></h2>
+                                <div class="product-detail-rating">
+                                    <div class="product-rate-cover text-end">
+                                        <div class="product-rate d-inline-block">
+                                            <div class="product-rating" style="width:100%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix product-price-cover">
+                                    <div class="product-price primary-color float-left">
+                                        <span class="current-price text-brand " th:text="'￥'+${goods.price}"></span>
+                                        <span>
+                                                <span class="save-price  font-md color3 ml-15" th:text="${#numbers.formatDecimal((goods.normalprice-goods.price)/goods.normalprice*100,1,2)}+'%优惠'"></span>
+                                                <span class="old-price font-md ml-15" th:text="'￥'+${goods.normalprice}"></span>
+                                            </span>
+                                    </div>
+                                </div>
+                                <div class="short-desc mb-30">
+                                    <p class="font-lg" th:text="${goods.content}"></p>
+                                </div>
+
+                                <div class="detail-extralink mb-50">
+
+                                    <div class="product-extra-link2">
+                                        <button type="submit" th:onclick="addcart([[${goods.id}]])" class="button button-add-to-cart"><i class="fi-rs-shopping-cart"></i>加入收藏</button>
+
+                                    </div>
+                                </div>
+                                <div class="font-xs">
+                                    <ul class="mr-50 float-start">
+                                        <li class="mb-5">房屋类型: <span class="text-brand" th:text="${goods.category.name}"></span></li>
+                                        <li class="mb-5">详细地址:<span class="text-brand" th:text="${goods.address}"> </span></li>
+                                    </ul>
+                                    <ul class="float-start">
+                                        <li class="mb-5">租赁次数:<span class="text-brand ml-5" th:text="${goods.salenums}"></span></li>
+                                        <li class="mb-5">浏览量: <span class="text-brand" th:text="${goods.seenums}"></span> </li>
+
+                                    </ul>
+
+                                </div>
+                            </div>
+                            <!-- Detail Info -->
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="tab-style3">
+                            <ul class="nav nav-tabs text-uppercase">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="Description-tab" data-bs-toggle="tab" href="#Description">详情</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="Additional-info-tab" data-bs-toggle="tab" href="#Additional-info">房屋参数</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews">评价</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content shop_info_tab entry-main-content">
+                                <div class="tab-pane fade show active" id="Description">
+                                    <div class="">
+                                        <p th:utext="${goods.detail}">
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="Additional-info">
+                                    <table class="font-md">
+                                        <tbody>
+
+                                        <tr class="stand-up">
+                                            <th>房屋类型:</th>
+                                            <td>
+                                                <p th:text="${goods.category.name}"></p>
+                                            </td>
+                                        </tr>
+                                        <tr class="folded-wo-wheels">
+                                            <th>详细地址:</th>
+                                            <td>
+                                                <p th:text="${goods.address}"></p>
+                                            </td>
+                                        </tr>
+
+                                        <tr class="door-pass-through">
+                                            <th>上架时间:</th>
+                                            <td>
+                                                <p th:text="${goods.createtime}"></p>
+                                            </td>
+                                        </tr>
+                                        <tr class="frame">
+                                            <th>浏览量: </th>
+                                            <td>
+                                                <p th:text="${goods.seenums}"></p>
+                                            </td>
+                                        </tr>
+                                        <tr class="weight-wo-wheels">
+                                            <th>租赁次数:</th>
+                                            <td>
+                                                <p th:text="${goods.salenums}"></p>
+                                            </td>
+                                        </tr>
+                                        <tr class="weight-capacity">
+                                            <th>入住地</th>
+                                            <td>
+                                                <p th:text="${goods.provinces.province_Name}+${goods.cities.city_Name}+${goods.areas.area_Name}+${goods.address}"></p>
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="Reviews">
+                                    <!--Comments-->
+                                    <div class="comments-area">
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <h4 class="mb-30">评价</h4>
+                                                <div class="comment-list" th:each="data:${commentsList}">
+
+                                                    <div class="single-comment justify-content-between d-flex mb-30">
+                                                        <div class="user justify-content-between d-flex">
+                                                            <div class="thumb text-center" style="width: 80px;height: 116px">
+                                                                <img th:src="${data.user.photo}" alt="">
+                                                                <a href="#" class="font-heading text-brand" th:text="${data.user.realname}"></a>
+                                                            </div>
+                                                            <div class="desc">
+                                                                <div class="d-flex justify-content-between mb-10">
+                                                                    <div class="d-flex align-items-center">
+                                                                        <span class="font-xs text-muted" th:text="${data.create_time}"></span>
+                                                                    </div>
+
+                                                                </div>
+                                                                <p class="mb-10" th:text="${data.content}"></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--comment form-->
+                                    <div class="comment-form" th:if="${canaddcomments !=null}">
+                                        <h4 class="mb-15">发布评价</h4>
+
+                                        <div class="row">
+                                            <div class="col-lg-8 col-md-12">
+                                                <form class="form-contact comment_form" id="commentForm">
+                                                    <input type="hidden" name="goods_id" id="goods_id" th:value="${goods.id}">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <textarea class="form-control w-100" name="content" id="comment" cols="30" rows="9" placeholder="Write Comment"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button type="button" id="addComments" class="button button-contactForm">评价</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div th:include="index/footer"></div>
+<!-- Preloader Start -->
+<div id="preloader-active">
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-inner position-relative">
+            <div class="text-center">
+                <img src="static/picture/loading.gif" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Vendor JS-->
+<script src="static/js/modernizr-3.6.0.min.js"></script>
+<script src="static/js/jquery-3.6.0.min.js"></script>
+<script src="static/js/jquery-migrate-3.3.0.min.js"></script>
+<script src="static/js/bootstrap.bundle.min.js"></script>
+<script src="static/js/slick.js"></script>
+<script src="static/js/jquery.syotimer.min.js"></script>
+<script src="static/js/wow.js"></script>
+<script src="static/js/jquery-ui.js"></script>
+<script src="static/js/perfect-scrollbar.js"></script>
+<script src="static/js/magnific-popup.js"></script>
+<script src="static/js/select2.min.js"></script>
+<script src="static/js/waypoints.js"></script>
+<script src="static/js/counterup.js"></script>
+<script src="static/js/jquery.countdown.min.js"></script>
+<script src="static/js/images-loaded.js"></script>
+<script src="static/js/isotope.js"></script>
+<script src="static/js/scrollup.js"></script>
+<script src="static/js/jquery.vticker-min.js"></script>
+<script src="static/js/jquery.theia.sticky.js"></script>
+<script src="static/js/jquery.elevatezoom.js"></script>
+<!-- Template  JS -->
+<script src="static/js/main.js"></script>
+<script src="static/js/shop.js"></script>
+
+
+<link href="assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+<script th:src="@{/assets/libs/sweetalert2/sweetalert2.min.js}" src=""></script>
+<script th:src="@{/assets/js/pages/sweet-alerts.init.js}" src=""></script>
+<script>
+
+    $("#addComments").click(function() {
+        $.ajax({
+            cache : true,
+            type : "post",
+            url : "addComments",
+            data : $("#commentForm").serialize(),
+            async : false,
+            success : function(e) {
+                if (e) {
+                    alert("评价成功！");
+                    document.location.reload()
+                } else {
+                    alert("新增失败！");
+                }
+            }
+        })
+    });
+
+    function collect(id) {
+        Swal.fire({
+            title: "确定添加收藏吗?",
+            icon: "info",
+            showCancelButton: !0,
+            confirmButtonColor: "#1cbb8c",
+            cancelButtonColor: "#f14e4e",
+            confirmButtonText: '确认',
+            cancelButtonText: '取消'
+        }).then((result) => {
+            if (result.value) {
+
+                $.ajax({
+                    cache: true,
+                    url: "addCollect",
+                    data: {"goods_id": id},
+                    type: "post",
+                    async: false,
+                    success: function (data) {
+                        if (data == 'yes') {
+                            result.value && Swal.fire("收藏成功!", "操作完成", "success", ).then(function () {
+                                document.location.reload()
+                            })
+
+                        } else  if (data == 'no') {
+                            result.value && Swal.fire("收藏失败!", "请先登录", "error", ).then(function () {
+                                document.location.reload()
+                            })
+
+                        }else  if (data == 'repeat') {
+                            result.value && Swal.fire("收藏失败!", "您已收藏过了", "error", ).then(function () {
+                                document.location.reload()
+                            })
+                        }
+                    },
+                    complete : function(xhr, status) {
+                        if(status=='error'){
+                            alert("请先登录！")
+                        }
+                        //拦截器实现超时跳转到登录页面
+                        // 通过xhr取得响应头
+                        var REDIRECT = xhr.getResponseHeader("REDIRECT");
+                        //如果响应头中包含 REDIRECT 则说明是拦截器返回的需要重定向的请求
+                        if (REDIRECT == "REDIRECT")
+                        {
+                            var win = window;
+                            while (win != win.top)
+                            {
+                                win = win.top;
+                            }
+
+                            win.location.href = xhr.getResponseHeader("CONTEXTPATH");
+                        }
+                    }
+                });
+            }
+        })
+    }
+
+
+    function addcart(id) {
+        Swal.fire({
+            title: "确定加入收藏吗?",
+            icon: "info",
+            showCancelButton: !0,
+            confirmButtonColor: "#1cbb8c",
+            cancelButtonColor: "#f14e4e",
+            confirmButtonText: '确认',
+            cancelButtonText: '取消'
+        }).then((result) => {
+            if (result.value) {
+                var goods_nums = document.getElementById("goods_nums").innerText;
+                $.ajax({
+                    cache: true,
+                    url: "addShopcart",
+                    data: {"goods_id": id,"nums":goods_nums},
+                    type: "post",
+                    async: false,
+                    success: function (data) {
+                        if (data == 'yes') {
+                            result.value && Swal.fire("加入成功!", "操作完成", "success", ).then(function () {
+                                document.location.reload()
+                            })
+                        } else  if (data == 'no') {
+                            result.value && Swal.fire("加入失败!", "请先登录", "error", ).then(function () {
+                                document.location.reload()
+                            })
+
+                        }else  if (data == 'repeat') {
+                            result.value && Swal.fire("收藏失败!", "您已收藏过了", "error", ).then(function () {
+                                document.location.reload()
+                            })
+                        }
+                    },
+                    complete : function(xhr, status) {
+                        if(status=='error'){
+                            alert("请先登录！")
+                        }
+                        //拦截器实现超时跳转到登录页面
+                        // 通过xhr取得响应头
+                        var REDIRECT = xhr.getResponseHeader("REDIRECT");
+                        //如果响应头中包含 REDIRECT 则说明是拦截器返回的需要重定向的请求
+                        if (REDIRECT == "REDIRECT")
+                        {
+                            var win = window;
+                            while (win != win.top)
+                            {
+                                win = win.top;
+                            }
+
+                            win.location.href = xhr.getResponseHeader("CONTEXTPATH");
+                        }
+                    }
+                });
+            }
+        })
+    }
+</script>
+</body>
+
+</html>
