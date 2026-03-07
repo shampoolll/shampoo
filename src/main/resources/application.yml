@@ -13,6 +13,16 @@ spring:
       enabled: true
       max-file-size: 50MB
       max-request-size: 50MB
+  ai:
+    openai:
+          # 这里换成你刚刚申请的 DeepSeek API Key
+          api-key: sk-6cb6a8839bd54a5eafd8762b28bfc12e
+          # 将官方地址替换为 DeepSeek 的地址
+          base-url: https://api.deepseek.com
+          chat:
+            options:
+              # 使用 DeepSeek 的模型
+              model: deepseek-chat
 
 #扫描mapper配置User
 mybatis-plus:
@@ -31,5 +41,4 @@ server:
   port : 8087
 
 #设置统一的主键生成策略
-
 

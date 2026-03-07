@@ -54,6 +54,7 @@ com\study\dao\ShopcartMapper.class
 com\study\entity\Orders_item.class
 com\study\dao\EchartsMapper.class
 com\study\dao\UserMapper.class
+com\study\controller\AIChatController.class
 com\study\service\impl\AreasServiceImpl.class
 com\study\controller\BoardController.class
 com\study\dao\ProvincesMapper.class

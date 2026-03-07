@@ -40,7 +40,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
                         "/ajaxMailCode","/tofindpwd","/findPwd","/findpwd.html","/setpwd.html",
                         "/setPwd","error/404.html",
 
-                        "/static/css/**","/static/js/**"
+                        "/static/css/**","/static/js/**","/ai/chat"
                 );
     }
 
