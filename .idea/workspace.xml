@@ -4,7 +4,120 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51286fff-dad0-4336-a629-f12a327281e0" name="Default Changelist" comment="" />
+    <list default="true" id="51286fff-dad0-4336-a629-f12a327281e0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/config/LoginHandlerInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/config/LoginHandlerInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/controller/AliPayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/controller/AliPayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/controller/BannerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/controller/BannerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/controller/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/controller/BussinessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/controller/BussinessController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/controller/CommentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/controller/CommentsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/controller/ComplaintController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/controller/ComplaintController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/controller/GoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/controller/GoodsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/controller/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/controller/OrdersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/controller/Orders_itemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/controller/Orders_itemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/controller/ShopcartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/controller/ShopcartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-alipay.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-alipay.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application-alipay.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-alipay.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/StudyApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/StudyApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/bean/Alipay.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/bean/Alipay.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/config/AliPayConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/config/AliPayConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/config/LoginHandlerInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/config/LoginHandlerInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/config/MyMvcConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/config/MyMvcConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/controller/AliPayController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/controller/AliPayController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/controller/BannerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/controller/BannerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/controller/BoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/controller/BoardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/controller/BussinessController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/controller/BussinessController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/controller/CategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/controller/CategoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/controller/CommentsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/controller/CommentsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/controller/ComplaintController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/controller/ComplaintController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/controller/EchartsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/controller/EchartsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/controller/GoodsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/controller/GoodsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/controller/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/controller/IndexController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/controller/OrdersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/controller/OrdersController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/controller/Orders_itemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/controller/Orders_itemController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/controller/ShopcartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/controller/ShopcartController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/dao/AdminMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/dao/AdminMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/dao/AreasMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/dao/AreasMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/dao/BannerMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/dao/BannerMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/dao/BoardMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/dao/BoardMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/dao/BussinessMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/dao/BussinessMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/dao/CategoryMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/dao/CategoryMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/dao/CitiesMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/dao/CitiesMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/dao/CommentsMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/dao/CommentsMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/dao/ComplaintMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/dao/ComplaintMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/dao/EchartsMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/dao/EchartsMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/dao/GoodsMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/dao/GoodsMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/dao/OrdersMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/dao/OrdersMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/dao/Orders_itemMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/dao/Orders_itemMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/dao/ProvincesMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/dao/ProvincesMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/dao/ShopcartMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/dao/ShopcartMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/dao/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/dao/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/entity/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/entity/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/entity/AlipayOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/entity/AlipayOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/entity/Areas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/entity/Areas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/entity/Banner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/entity/Banner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/entity/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/entity/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/entity/Bussiness.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/entity/Bussiness.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/entity/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/entity/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/entity/Cities.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/entity/Cities.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/entity/Comments.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/entity/Comments.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/entity/Complaint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/entity/Complaint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/entity/Goods.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/entity/Goods.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/entity/Orders.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/entity/Orders.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/entity/Orders_item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/entity/Orders_item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/entity/Provinces.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/entity/Provinces.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/entity/Shopcart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/entity/Shopcart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/entity/Statics.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/entity/Statics.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/AdminService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/AliPayService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/AliPayService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/AreasService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/AreasService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/BannerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/BannerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/BoardService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/BoardService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/BussinessService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/BussinessService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/CategoryService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/CitiesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/CitiesService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/CommentsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/CommentsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/ComplaintService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/ComplaintService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/GoodsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/GoodsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/OrdersService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/OrdersService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/Orders_itemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/Orders_itemService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/ProvincesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/ProvincesService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/ShopcartService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/ShopcartService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/impl/AdminServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/impl/AdminServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/impl/AliPayServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/impl/AliPayServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/impl/AreasServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/impl/AreasServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/impl/BannerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/impl/BannerServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/impl/BoardServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/impl/BoardServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/impl/BussinessServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/impl/BussinessServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/impl/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/impl/CategoryServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/impl/CitiesServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/impl/CitiesServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/impl/CommentsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/impl/CommentsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/impl/ComplaintServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/impl/ComplaintServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/impl/GoodsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/impl/GoodsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/impl/OrdersServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/impl/OrdersServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/impl/Orders_itemServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/impl/Orders_itemServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/impl/ProvincesServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/impl/ProvincesServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/impl/ShopcartServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/impl/ShopcartServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/utils/DateUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/utils/DateUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/utils/VerifyCodeUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/utils/VerifyCodeUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/study/StudyApplicationTests.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +151,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/com/study/controller/IndexController.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/study/controller/EchartsController.java" root0="SKIP_INSPECTION" />
@@ -59,29 +175,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;Spring Boot.StudyApplication.executor&quot;: &quot;Run&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.study [clean].executor": "Run",
+    "Maven.study [compile].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.StudyApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "项目",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "File.Encoding",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\springboot\src\main\resources" />
@@ -281,6 +400,7 @@
       <workItem from="1772715903760" duration="262000" />
       <workItem from="1772788990339" duration="841000" />
       <workItem from="1772792293248" duration="1993000" />
+      <workItem from="1772865668929" duration="3989000" />
     </task>
     <servers />
   </component>
