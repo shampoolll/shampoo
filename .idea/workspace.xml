@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="51286fff-dad0-4336-a629-f12a327281e0" name="Default Changelist" comment="Default Changelist">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/config/AiToolConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/config/AiToolConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/study/StudyApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/study/StudyApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/study/StudyApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/study/StudyApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +83,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.StudyApplicationTests.addMassiveData.executor": "Run",
     "Maven.study [clean].executor": "Run",
     "Maven.study [compile].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
@@ -131,6 +132,22 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.StudyApplication">
+    <configuration name="StudyApplicationTests.addMassiveData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="study" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.study.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.study" />
+      <option name="MAIN_CLASS_NAME" value="com.study.StudyApplicationTests" />
+      <option name="METHOD_NAME" value="addMassiveData" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StudyApplicationTests.genCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="springboot" />
       <extension name="coverage">
@@ -163,12 +180,14 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.StudyApplicationTests.addMassiveData" />
       <item itemvalue="JUnit.StudyApplicationTests.genCode" />
       <item itemvalue="Spring Boot.StudyApplication" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.StudyApplication" />
+        <item itemvalue="JUnit.StudyApplicationTests.addMassiveData" />
         <item itemvalue="JUnit.StudyApplicationTests.genCode" />
       </list>
     </recent_temporary>
@@ -182,6 +201,9 @@
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="StructureViewState">
+    <option name="selectedTab" value="逻辑" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -309,6 +331,7 @@
       <workItem from="1772792293248" duration="1993000" />
       <workItem from="1772865668929" duration="7639000" />
       <workItem from="1772886593381" duration="1984000" />
+      <workItem from="1772964725585" duration="1837000" />
     </task>
     <task id="LOCAL-00001" summary="Default Changelist">
       <option name="closed" value="true" />
