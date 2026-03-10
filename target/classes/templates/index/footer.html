@@ -23,35 +23,52 @@
     </div>
 </footer>
 
-<div id="ai-chat-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
-    <div id="chat-window" style="display:none; width: 350px; height: 500px; background: white; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); flex-direction: column; overflow: hidden; margin-bottom: 15px; border: 1px solid #e0e0e0;">
-        <div style="background: linear-gradient(135deg, #3bb77e, #289a5f); color: white; padding: 15px; font-weight: bold; text-align: center; font-size: 16px;">
-            🤖 小管家 - 智能客服
-            <span onclick="toggleChat()" style="float: right; cursor: pointer; font-size: 18px; line-height: 1;">✖</span>
+<div id="ai-chat-container" style="position: fixed; bottom: 30px; right: 30px; z-index: 9999;">
+
+    <div id="chat-window" style="display:none; width: 360px; height: 550px; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.5); border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); flex-direction: column; overflow: hidden; margin-bottom: 15px; transition: all 0.3s ease;">
+
+        <div style="background: linear-gradient(135deg, #4A90E2 0%, #007BFF 100%); color: white; padding: 18px 20px; font-weight: bold; font-size: 16px; display: flex; justify-content: space-between; align-items: center;">
+            <span>✨ 专属 AI 经纪人</span>
+            <span onclick="toggleChat()" style="cursor: pointer; font-size: 20px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">✖</span>
         </div>
-        <div id="chat-content" style="flex: 1; overflow-y: auto; padding: 15px; font-size: 14px; background: #f8f9fa; display: flex; flex-direction: column;">
+
+        <div id="chat-content" style="flex: 1; overflow-y: auto; padding: 15px; font-size: 14px; background-color: transparent; display: flex; flex-direction: column;">
             <div style="margin-bottom: 15px; align-self: flex-start; max-width: 80%;">
-                <span style="background: white; padding: 10px 14px; border-radius: 0 12px 12px 12px; display: inline-block; border: 1px solid #eee; box-shadow: 0 1px 3px rgba(0,0,0,0.05); line-height: 1.5;">
-                    您好！我是智能客服小管家，请问有什么可以帮您的吗？😊
+                <span style="background-color: white; padding: 12px 18px; border-radius: 4px 16px 16px 16px; display: inline-block; box-shadow: 0 4px 10px rgba(0,0,0,0.04); font-size: 14px; line-height: 1.6; color: #333;">
+                    你好！我是您的专属AI房产助手。<br>您可以直接问我：“帮我找一套预算3000左右，靠近地铁的复式loft”。
                 </span>
             </div>
         </div>
-        <div style="padding: 12px; border-top: 1px solid #eee; display: flex; background: white;">
-            <input type="text" id="ai-input" placeholder="输入您的问题..." style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline: none; background: #f4f4f4; transition: all 0.3s;">
-            <button onclick="sendToAI()" style="background: #3bb77e; color: white; border: none; padding: 10px 18px; margin-left: 10px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: background 0.3s;">发送</button>
+
+        <div style="padding: 15px; background: rgba(255,255,255,0.6); border-top: 1px solid rgba(255,255,255,0.4); display: flex;">
+            <input type="text" id="ai-input" placeholder="输入您的问题..." style="flex: 1; padding: 12px 15px; border: none; background: #f0f2f5; border-radius: 20px; outline: none; font-size: 14px; transition: background 0.3s, box-shadow 0.3s;" onfocus="this.style.background='#fff'; this.style.boxShadow='0 0 0 2px rgba(0,123,255,0.2)'" onblur="this.style.background='#f0f2f5'; this.style.boxShadow='none'">
+            <button onclick="sendToAI()" style="margin-left: 10px; padding: 0 20px; background: #007BFF; color: white; border: none; border-radius: 20px; cursor: pointer; font-weight: bold; transition: all 0.2s; box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">发送</button>
         </div>
     </div>
 
-    <button onclick="toggleChat()" style="float: right; border-radius: 50%; width: 65px; height: 65px; background: #3bb77e; color: white; border: none; box-shadow: 0 5px 15px rgba(59, 183, 126, 0.4); cursor: pointer; font-size: 28px; transition: transform 0.2s;">
+    <button onclick="toggleChat()" style="float: right; border-radius: 50%; width: 60px; height: 60px; background: linear-gradient(135deg, #4A90E2 0%, #007BFF 100%); color: white; border: none; box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4); cursor: pointer; font-size: 28px; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(0, 123, 255, 0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0, 123, 255, 0.4)'">
         💬
     </button>
 </div>
 
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
+    // 加入了丝滑的展开/收起过渡动画
     function toggleChat() {
         const win = document.getElementById('chat-window');
-        win.style.display = win.style.display === 'none' ? 'flex' : 'none';
+        if (win.style.display === 'none') {
+            win.style.display = 'flex';
+            win.animate([
+                { opacity: 0, transform: 'translateY(20px) scale(0.95)' },
+                { opacity: 1, transform: 'translateY(0) scale(1)' }
+            ], { duration: 300, easing: 'cubic-bezier(0.25, 0.8, 0.25, 1)' });
+        } else {
+            const animation = win.animate([
+                { opacity: 1, transform: 'translateY(0) scale(1)' },
+                { opacity: 0, transform: 'translateY(20px) scale(0.95)' }
+            ], { duration: 250, easing: 'ease-in' });
+            animation.onfinish = () => win.style.display = 'none';
+        }
     }
 
     function sendToAI() {
@@ -61,21 +78,22 @@
 
         if(!msg) return;
 
-        // 显示用户消息 (绿色气泡，靠右)
+        // 显示用户消息 (轻奢蓝底气泡，靠右)
         content.innerHTML += `
             <div style="margin-bottom: 15px; align-self: flex-end; max-width: 80%; margin-left: auto; text-align: right;">
-                <span style="background: #dcf8c6; padding: 10px 14px; border-radius: 12px 0 12px 12px; display: inline-block; box-shadow: 0 1px 3px rgba(0,0,0,0.05); line-height: 1.5; text-align: left;">
+                <span style="background: linear-gradient(135deg, #4A90E2 0%, #007BFF 100%); color: white; padding: 12px 18px; border-radius: 16px 4px 16px 16px; display: inline-block; box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2); line-height: 1.6; text-align: left; font-size: 14px;">
                     ${msg}
                 </span>
             </div>`;
         input.value = '';
+        content.scrollTop = content.scrollHeight;
 
-        // 显示"AI正在输入"的提示
+        // 显示带打字动画的思考提示
         const loadingId = 'loading-' + Date.now();
         content.innerHTML += `
             <div id="${loadingId}" style="margin-bottom: 15px; align-self: flex-start; max-width: 80%;">
-                <span style="background: transparent; padding: 10px; color: #888; display: inline-block;">
-                    小管家正在思考中...
+                <span style="background: rgba(255,255,255,0.7); padding: 12px 18px; border-radius: 4px 16px 16px 16px; display: inline-block; font-size: 14px; color: #666; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
+                    <i class="loading-dots">AI 正在翻阅房源，请稍候...</i>
                 </span>
             </div>`;
         content.scrollTop = content.scrollHeight;
@@ -83,15 +101,22 @@
         // 真实请求后端 Spring AI 接口
         $.get("/ai/chat", { message: msg }, function(data) {
             document.getElementById(loadingId).remove();
-
-            // 将换行符替换为 <br> 以便在 HTML 中正确显示段落
             const formattedData = data.replace(/\n/g, '<br>');
 
-            // 显示AI真实回复 (白色气泡，靠左)
+            // 显示AI真实回复
             content.innerHTML += `
                 <div style="margin-bottom: 15px; align-self: flex-start; max-width: 80%;">
-                    <span style="background: white; padding: 10px 14px; border-radius: 0 12px 12px 12px; display: inline-block; border: 1px solid #eee; box-shadow: 0 1px 3px rgba(0,0,0,0.05); line-height: 1.5;">
+                    <span style="background-color: white; padding: 12px 18px; border-radius: 4px 16px 16px 16px; display: inline-block; box-shadow: 0 4px 10px rgba(0,0,0,0.04); font-size: 14px; line-height: 1.6; color: #333;">
                         ${formattedData}
+                    </span>
+                </div>`;
+            content.scrollTop = content.scrollHeight;
+        }).fail(function() {
+            document.getElementById(loadingId).remove();
+            content.innerHTML += `
+                <div style="margin-bottom: 15px; align-self: flex-start; max-width: 80%;">
+                    <span style="background-color: #fff0f0; padding: 12px 18px; border-radius: 4px 16px 16px 16px; display: inline-block; box-shadow: 0 4px 10px rgba(0,0,0,0.04); font-size: 14px; line-height: 1.6; color: #d93025; border: 1px solid #ffd0d0;">
+                        网络开了个小差，请检查后端是否正常启动！
                     </span>
                 </div>`;
             content.scrollTop = content.scrollHeight;
@@ -105,4 +130,33 @@
         }
     });
 </script>
+
+<style>
+    /* 动态打字省略号加载动画 */
+    .loading-dots:after {
+        content: '.';
+        animation: dots 1.5s steps(5, end) infinite;
+    }
+    @keyframes dots {
+        0%, 20% { color: rgba(0,0,0,0); text-shadow: .25em 0 0 rgba(0,0,0,0), .5em 0 0 rgba(0,0,0,0); }
+        40% { color: #666; text-shadow: .25em 0 0 rgba(0,0,0,0), .5em 0 0 rgba(0,0,0,0); }
+        60% { text-shadow: .25em 0 0 #666, .5em 0 0 rgba(0,0,0,0); }
+        80%, 100% { text-shadow: .25em 0 0 #666, .5em 0 0 #666; }
+    }
+
+    /* 隐藏丑陋的默认滚动条，改为类似 Mac 的纤细滚动条 */
+    #chat-content::-webkit-scrollbar {
+        width: 6px;
+    }
+    #chat-content::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    #chat-content::-webkit-scrollbar-thumb {
+        background-color: rgba(0,0,0,0.1);
+        border-radius: 10px;
+    }
+    #chat-content::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(0,0,0,0.2);
+    }
+</style>
 </html>

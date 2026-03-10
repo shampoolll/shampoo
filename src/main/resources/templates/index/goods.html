@@ -131,7 +131,7 @@
                         <ul class="pagination justify-content-start">
                             <li class="page-item">
                                 <a class="page-link" th:href="'/'+${url}+'?pageNum='+${pageInfo.prePage}"
-                                   th:if="${pageInfo.pageNum > pageInfo.getFirstPage() && pageInfo.prePage != 0}"><i class="fi-rs-arrow-small-left"></i></a>
+                                   th:if="${pageInfo.pageNum > 1 && pageInfo.prePage != 0}"><i class="fi-rs-arrow-small-left"></i></a>
                             </li>
 
 
@@ -147,7 +147,7 @@
                             </li>
 
                             <li class="page-item"><a class="page-link" th:href="'/'+${url}+'?pageNum='+${pageInfo.nextPage}"
-                                                     th:if="${pageInfo.pageNum < pageInfo.getLastPage()}"><i class="fi-rs-arrow-small-right"></i></a></li>
+                                                     th:if="${pageInfo.pageNum < pageInfo.pages}"><i class="fi-rs-arrow-small-right"></i></a></li>
                         </ul>
                     </nav>
                 </div>

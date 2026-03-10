@@ -1,30 +1,4 @@
-/*此代码非源码，仅为演示用，下载源码请到：*//***
- Theme Name: Nest
- Description: Grocery, Super Market, eCommerce HTML Template
- Version: 1.0
-更多精品模板：
-==============================
-TABLE CONTENT
- Import Google Fonts
- Include Third Party CSS Library
- GENERAL
- HEADER
- Offcanvas Sidebar
- Search form
- Main header
- Mega menu
- Header layouts
- Page layouts
- Pagination
- Breadcrumb
- CATEGORY PAGES
- SINGLE POST
- Author box
- comment
- Post share social
- WP STYPE
- Custom amine
-***/
+
 @import url("css2.css");
 /*import vendors*/
 @import url(normalize.css);
@@ -9547,7 +9521,7 @@ footer .hotline img {
 }
 
 /***************************
-    Page section margin 
+    Page section margin
 ****************************/
 .mtb-0 {
   margin: 0;
@@ -11337,4 +11311,211 @@ footer .hotline img {
     padding: 30px;
   }
 }
-/*# sourceMappingURL=main.css.map *//*此代码非源码，仅为演示用，下载源码请到：*/
+/* ================= 全局高级感 UI 升级 ================= */
+
+/* 1. 房源卡片的柔和阴影与悬浮浮动 */
+/* 注意：这里的 .card 或者 .product-cart-wrap 是你房源列表卡片的 class 名字，根据你实际的 html 修改 */
+.card, .product-cart-wrap, .shop-product-fillter {
+  border-radius: 16px !important; /* 大圆角显得现代、亲和 */
+  border: none !important;
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04); /* 平时是极其微弱的阴影 */
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important; /* 丝滑的过渡动画引擎 */
+}
+
+/* 鼠标悬浮时的动效 */
+.card:hover, .product-cart-wrap:hover {
+  transform: translateY(-8px); /* 向上浮动 8 像素 */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* 阴影加深、扩散，产生立体感 */
+}
+
+/* 让卡片里的图片上方也跟着变圆角 */
+.card img, .product-cart-wrap img {
+  border-radius: 16px 16px 0 0 !important;
+  transition: transform 0.5s ease;
+}
+
+/* 鼠标悬浮时，图片轻微放大（非常高级的细节） */
+.card:hover img, .product-cart-wrap:hover img {
+  transform: scale(1.03);
+}
+
+/* 因为图片放大会超出边界，所以要在图片的父容器加上溢出隐藏 */
+.product-img-action-wrap, .img-wrapper {
+  overflow: hidden;
+  border-radius: 16px 16px 0 0 !important;
+}
+/* 2. 导航栏毛玻璃特效 (支持各大现代浏览器) */
+.header-area, header {
+  background: rgba(255, 255, 255, 0.75) !important; /* 75%透明度的白色 */
+  backdrop-filter: blur(12px); /* 核心魔法：背景模糊 12 像素 */
+  -webkit-backdrop-filter: blur(12px); /* 兼容苹果Safari浏览器 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+/* 3. 按钮的轻奢渐变与呼吸交互 */
+.btn, .btn-primary, button {
+  border-radius: 8px !important;
+  border: none !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* 主按钮使用轻盈的渐变蓝 */
+.btn-primary {
+  background: linear-gradient(135deg, #4A90E2 0%, #007BFF 100%) !important;
+  color: white !important;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px); /* 悬浮微抬 */
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(1px); /* 点击时微缩（按压反馈） */
+}
+
+/* =========================================================
+   🚀 极致高级感 UI 终极升级包 (Apple & 轻奢风)
+   ========================================================= */
+
+/* 1. 全局字体与高定配色重构 (抛弃生硬的艳丽色，改用深邃蓝与香槟金) */
+:root {
+  --premium-primary: #1A2B4C; /* 高定深海蓝，代表专业、信任与沉稳 */
+  --premium-accent: #D4AF37;  /* 香槟金，用于价格和强调，彰显轻奢 */
+  --premium-bg: #F9FAFB;      /* 极简背景灰，增加呼吸感 */
+  --text-main: #2C3E50;       /* 柔和的正文主色，不刺眼 */
+}
+
+body {
+  background-color: var(--premium-bg);
+  color: var(--text-main);
+  /* 启用苹果级排版引擎，字体更平滑清晰 */
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", STHeiti, "Microsoft Yahei", sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. 价格与强调色替换，瞬间提升档次 */
+.text-brand, .text-primary, .product-price span {
+  color: var(--premium-primary) !important;
+}
+.product-price span.new-price, .current-price {
+  color: var(--premium-accent) !important; /* 租金用香槟金，极其吸睛 */
+}
+.text-muted, .old-price {
+  color: #A0AEC0 !important; /* 更加优雅的浅灰色 */
+}
+
+/* 3. 按钮重构：取消廉价渐变，改为高级纯色 + 悬浮磁吸反馈 */
+.btn, .btn-primary, button.submit, button[type='submit'], .add-cart .add {
+  background: var(--premium-primary) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 12px !important; /* 偏圆润的现代感 */
+  padding: 12px 28px !important;
+  font-weight: 600 !important;
+  letter-spacing: 1px;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  box-shadow: 0 4px 15px rgba(26, 43, 76, 0.15) !important;
+}
+.btn:hover, .btn-primary:hover, button.submit:hover, .add-cart .add:hover {
+  background: #0F192E !important; /* 悬浮时加深 */
+  transform: translateY(-3px) scale(1.02); /* 微微抬起并放大，产生“磁吸”手感 */
+  box-shadow: 0 8px 25px rgba(26, 43, 76, 0.3) !important;
+}
+.btn:active {
+  transform: translateY(1px) scale(0.98); /* 点击时的按压回弹感 */
+}
+
+/* 4. 房源卡片极致物理打磨：如同 iOS 桌面小组件 */
+.product-cart-wrap {
+  background: #ffffff !important;
+  border: 1px solid rgba(0,0,0,0.03) !important; /* 几乎看不见的边框 */
+  border-radius: 20px !important; /* 大圆角 */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02) !important; /* 日常极轻微的阴影 */
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+.product-cart-wrap:hover {
+  transform: translateY(-10px); /* 悬停浮空 */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important; /* 悬浮时阴影扩散 */
+  border-color: rgba(212, 175, 55, 0.3) !important; /* 边缘泛起淡淡的金色光晕 */
+}
+/* 卡片图片平滑缩放视差效果 */
+.product-cart-wrap .product-img a img {
+  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  will-change: transform;
+}
+.product-cart-wrap:hover .product-img a img {
+  transform: scale(1.06); /* 图片缓慢放大，极其优雅 */
+}
+/* 增加卡片文字区的呼吸留白 */
+.product-cart-wrap .product-content-wrap {
+  padding: 24px !important;
+}
+.product-title a {
+  font-size: 17px !important;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+/* 5. 导航栏毛玻璃进阶版 (纯净白 + 强模糊，类似 Mac 顶栏) */
+.sticky-bar.stick {
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: saturate(180%) blur(20px) !important;
+  -webkit-backdrop-filter: saturate(180%) blur(20px) !important;
+  border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* 6. 输入框的高级交互反馈 */
+input[type=text], input[type=password], input[type=email], input[type=number], textarea, .select2-selection {
+  background: #F3F4F6 !important;
+  border: 1px solid transparent !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: none !important;
+}
+input:focus, textarea:focus, .select2-container--open .select2-selection {
+  background: #ffffff !important;
+  border: 1px solid var(--premium-primary) !important;
+  box-shadow: 0 0 0 4px rgba(26, 43, 76, 0.08) !important; /* Focus 时带有一层光环 */
+}
+
+/* 7. 标签/徽章 (比如"热租"、"新上") 的去饱和处理 */
+.product-badges span {
+  border-radius: 8px !important;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 6px 14px !important;
+}
+.product-badges span.hot { background-color: #E74C3C !important; }
+.product-badges span.new { background-color: var(--premium-accent) !important; color: #fff !important; }
+
+/* 8. 丝滑滚动体验 & 定制优雅的滚动条 */
+html {
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* 全局图片圆角柔化 */
+img {
+  border-radius: 8px;
+}

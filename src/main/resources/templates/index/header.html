@@ -51,16 +51,11 @@
                                     <a th:href="toIndex">首页</a></li>
 
 
-                                <li>
-                                    <a th:href="toGoods">租房中心</a>
-                                </li>
-                                <li>
-                                    <a th:href="toBussiness">房东推荐</a>
-                                </li>
-                                <li>
-                                    <a th:href="toBoard">公告通知</a>
-                                </li>
+                                <li><a th:href="@{/toGoods}">租房中心</a></li>
 
+                                <li><a th:href="@{/toBussiness}">房东推荐</a></li>
+
+                                <li><a th:href="@{/toBoard}">公告通知</a></li>
 
                                 <li>
                                     <a th:href="ShopcartList" th:if="${session.get('type') == '2'}">房屋收藏</a>

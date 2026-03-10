@@ -1,4 +1,3 @@
-
 package com.study.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -41,11 +40,13 @@ public class GoodsController {
     public List<Areas> findAreaByCityId(String city_Id){
         return ProvincesMapper.findAreasByCityId(city_Id);
     }
+
     @RequestMapping("findCityByProId")
     @ResponseBody
     public List<Cities> findCityByProId(String province_Id){
         return ProvincesMapper.findCitiesByProvinceId(province_Id);
     }
+
     //删除Goods
     @RequestMapping("/deleteGoods")
     @ResponseBody
@@ -55,13 +56,13 @@ public class GoodsController {
         message = "yes";
         return message;
     }
+
     //修改
     @RequestMapping(value = "/updateGoods", method = RequestMethod.POST)
     public String updateGoods(Goods data) throws UnsupportedEncodingException {
         GoodsService.updateById(data);
         return "redirect:/GoodsList";
     }
-
 
     //添加
     @RequestMapping(value = "/addGoods", method = RequestMethod.POST)
@@ -72,6 +73,7 @@ public class GoodsController {
         GoodsService.save(data);
         return "redirect:/GoodsList";
     }
+
     //设置热门
     @RequestMapping(value = "/setHot")
     @ResponseBody
@@ -81,6 +83,7 @@ public class GoodsController {
         message = "yes";
         return message;
     }
+
     //查询
     @RequestMapping("/GoodsList")
     public String GoodsList( HttpSession httpSession,Model model){
@@ -88,18 +91,32 @@ public class GoodsController {
         Bussiness Bussiness = (Bussiness)httpSession.getAttribute("bussiness");
         if(Bussiness!=null){
             queryWrapper.eq("bussiness_id",Bussiness.getId());
+        }
 
-        }
         List<Goods> list = GoodsService.list(queryWrapper);
+
+        // --- 修改核心区域：增加判空保护，防止测试数据导致500报错 ---
         for(Goods data:list){
-            data.setCategory(CategoryService.getById(data.getCategory_id()));
-            data.setProvinces(ProvincesMapper.findProvinceById(data.getProvince_Id().toString()));
-            data.setCities(ProvincesMapper.findCityById(data.getCity_Id().toString()));
-            data.setAreas(ProvincesMapper.findAreaById(data.getArea_Id().toString()));
-            data.setBussiness(BussinessService.getById(data.getBussiness_id()));
+            if (data.getCategory_id() != null) {
+                data.setCategory(CategoryService.getById(data.getCategory_id()));
+            }
+            if (data.getProvince_Id() != null) {
+                data.setProvinces(ProvincesMapper.findProvinceById(data.getProvince_Id().toString()));
+            }
+            if (data.getCity_Id() != null) {
+                data.setCities(ProvincesMapper.findCityById(data.getCity_Id().toString()));
+            }
+            if (data.getArea_Id() != null) {
+                data.setAreas(ProvincesMapper.findAreaById(data.getArea_Id().toString()));
+            }
+            if (data.getBussiness_id() != null) {
+                data.setBussiness(BussinessService.getById(data.getBussiness_id()));
+            }
         }
-       model.addAttribute("list",list);
-       return "goods/list";
+        // --------------------------------------------------------
+
+        model.addAttribute("list",list);
+        return "goods/list";
     }
 
     //访问添加页面
@@ -129,4 +146,3 @@ public class GoodsController {
     }
 
 }
-
