@@ -111,12 +111,25 @@ public class ShopcartController {
             queryWrapper.eq("user_id",User.getId());
         }
         List<Shopcart> list = ShopcartService.list(queryWrapper);
-        for(Shopcart data:list){
-            data.setGoods(GoodsService.getById(data.getGoods_id()));
-            if(GoodsService.getById(data.getGoods_id()).getState()==0){
+
+        // 使用迭代器代替普通的for循环，方便在遇到脏数据时安全移除
+        java.util.Iterator<Shopcart> iterator = list.iterator();
+        while(iterator.hasNext()){
+            Shopcart data = iterator.next();
+            com.study.entity.Goods goods = GoodsService.getById(data.getGoods_id());
+
+            // 【核心修复】增加判空拦截！如果查不到这个商品（被物理删除或下架了），就直接跳过并移出列表
+            if(goods == null){
+                iterator.remove();
+                continue;
+            }
+
+            // 只有商品存在时，才进行赋值和状态判断
+            data.setGoods(goods);
+            if(goods.getState() == 0){
                 data.setStatusstring("未租赁");
             }
-            if(GoodsService.getById(data.getGoods_id()).getState()==1){
+            if(goods.getState() == 1){
                 data.setStatusstring("租赁中");
             }
         }
